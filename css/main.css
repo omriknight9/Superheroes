@@ -1,0 +1,1591 @@
+
+@font-face {
+    font-family: 'font';
+    src: url('../fonts/Roboto.ttf');
+}
+
+html, body {
+    position: relative;
+    font-family: 'font', 'Open Sans' !important;
+    min-height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    background: url('../images/background11.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    background-color: white;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.3);
+	background-color: #4caf50;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.menuOpenWrapper {
+    position: fixed;
+    cursor: pointer;
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    top: 2rem;
+    right: 2rem;
+    transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+    z-index: 3;
+    filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.8));
+}
+
+#toggle {
+    width: 45px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#toggle span {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 50%;
+    background: black;
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#toggle span:nth-child(even) {
+    left: 40%;
+    border-radius: 0 9px 9px 0;
+}
+
+#toggle span:nth-child(odd) {
+    left: 0px;
+    border-radius: 9px 0 0 9px;
+}
+
+#toggle span:nth-child(1), #toggle span:nth-child(2) {
+    top: 0px;
+}
+
+#toggle span:nth-child(3), #toggle span:nth-child(4) {
+    top: 16px;
+}
+
+#toggle span:nth-child(5), #toggle span:nth-child(6) {
+    top: 32px;
+}
+
+#toggle.on span:nth-child(1),#toggle.on span:nth-child(6) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#toggle.on span:nth-child(2),#toggle.on span:nth-child(5) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#toggle.on span:nth-child(1) {
+    left: 5px;
+    top: 7px;
+}
+
+#toggle.on span:nth-child(2) {
+    left: calc(50% - 5px);
+    top: 7px;
+}
+
+#toggle.on span:nth-child(3) {
+    left: -50%;
+    opacity: 0;
+}
+
+#toggle.on span:nth-child(4) {
+    left: 100%;
+    opacity: 0;
+}
+
+#toggle.on span:nth-child(5) {
+    left: 5px;
+    top: 27px;
+}
+
+#toggle.on span:nth-child(6) {
+    left: calc(50% - 5px);
+    top: 27px;
+}
+  
+#toggle.on + #menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu {
+    position: absolute;
+    right: -.9rem;
+    top: 4rem;
+    color: #999;
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    border-radius: 4px;
+    background: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+}
+
+#menu:after {
+  position: absolute;
+  top: -15px;
+  right: 7px;
+  content: "";
+  display: block;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid white;
+}
+
+#menu ul {
+    padding: 0;
+}
+
+#menu li {
+    list-style-type: none;
+    line-height: 2rem;
+    color: black;
+    filter: drop-shadow(0 0 6px rgba(10, 10, 10, 0.3));
+}
+
+#menu li:nth-child(3) {
+    margin-bottom: 1rem;
+}
+
+
+#menu img {
+    width: 50px;
+    height: 50px;
+    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.7)); */
+}
+
+#userNameHeader {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .8);
+    padding: 1rem .5rem;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    width: 10rem;
+    margin: 0 .5rem 0 .5rem;
+    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
+    overflow: hidden;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+button span {
+    position: absolute;
+    display: block;
+}
+
+button span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+
+button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+button span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes animate1 {
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+
+@keyframes animate2 {
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+
+@keyframes animate3 {
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+@keyframes animate4 {
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+#signUpBtn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 999;
+    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
+}
+
+#snap {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    height: 80px;
+    width: 80px;
+    background: 
+    url('../images/snap.png') 0px 0px;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    z-index: 999;
+}
+
+#time {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    height: 80px;
+    width: 80px;
+    background: 
+    url('../images/time.png') 0px 0px;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    z-index: 999;
+}
+
+#snap2 {
+    height: 80px;
+    width: 80px;
+    background: 
+    url('../images/snap.png') 0px 0px;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+#time2 {
+    display: none;
+    height: 80px;
+    width: 80px;
+    background: 
+    url('../images/time.png') 0px 0px;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+#marvelBtnsWrapper {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.progress-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 8px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: black;
+    width: 0;
+    opacity: .7;
+}
+
+#overlay {
+    width: 100%;
+    padding-top: 5rem;
+    position: absolute;
+    text-align: center;
+}
+
+#openningGif {
+    border-radius: 5px;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.7));
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 999;
+}
+
+#header img {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.5));
+}
+
+.searchContainer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    z-index: 1;
+}
+
+.searchContant {
+    position: relative;
+    width: 50%;
+    margin: auto;
+}
+
+#search {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 2rem;
+    text-indent: 1rem;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+#search::placeholder { 
+    color: black;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+}
+
+#search:focus {
+    outline: none;
+}
+
+#search ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ff5a4e;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+#search:focus ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    left: 0;
+}
+
+#searchResults {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 15rem;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 2;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+.result {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 95%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.result:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.resultName {
+    font-weight: 600;
+    padding-right: 3rem;
+}
+
+.resultImg {
+    width: 58px;
+    height: 100px;
+    border-radius: 5px;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+}
+
+.spinnerWrapper {
+    display: none;
+    position: absolute;
+    top: 17rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    min-height: 215px;
+    vertical-align: top;
+}
+
+.spinner {
+    margin: auto;
+    width: 140px;
+    height: 50px;
+    text-align: center;
+    z-index: 999;
+}
+
+.spinner > div {
+    width: 24px;
+    height: 24px;
+    background-color: #ff5a4e;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.2s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.2s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -.4s;
+    animation-delay: -.4s;
+    opacity: .4;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -.3s;
+    animation-delay: -.3s;
+    opacity: .6;
+}
+
+.spinner .bounce3 {
+    -webkit-animation-delay: -.2s;
+    animation-delay: -.2s;
+    opacity: .8;
+}
+
+.spinner .bounce4 {
+    -webkit-animation-delay: -.1s;
+    animation-delay: -.1s;
+    opacity: 1;
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+@-o-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+@-moz-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+main {
+    display: none;
+    position: relative;
+    margin-bottom: 10rem;
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.moveUp {
+    padding-top: 4rem !important;
+    opacity: 1 !important;
+    transition: 1.7s;
+    -webkit-transition: 1.7s;
+    -o-transition: 1.7s;
+    -moz-transition: 1.7s;
+}
+
+.fullOpacity {
+    opacity: 1 !important;
+    transition: 1.7s;
+    -webkit-transition: 1.7s;
+    -o-transition: 1.7s;
+    -moz-transition: 1.7s;
+}
+
+.headerLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    height: 60px;
+    width: 50px;
+    padding: 0 5px;
+}
+
+.lineWrapper {
+    padding-top: 4rem;
+}
+
+.line {
+    position: relative;
+    overflow: visible;
+    width: 80%;
+    height: 2px;
+    border-collapse: collapse;
+    margin: 0 auto 4rem auto;
+}
+
+#lineMarvel {
+    background: linear-gradient(to right, transparent, #e62429, transparent);
+}
+
+#lineMarvel span {
+    background: url(../images/ironman.webp) no-repeat 50% 50%;
+    background-size: 70px 60px;
+}
+
+#lineNonMcu {
+    background: linear-gradient(to right, transparent, #e62429, transparent);
+}
+
+#lineNonMcu span {
+    background: url(../images/wolverine.webp) no-repeat 50% 50%;
+    background-size: 70px 60px;
+}
+
+#lineDc {
+    background: linear-gradient(to right, transparent, #0282f9, transparent);
+}
+
+#lineDc span {
+    background: url(../images/superman.webp) no-repeat 50% 50%;
+    background-size: 60px 60px;
+}
+
+#gifWrapper {
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .6);
+    height: 97%;
+    padding-top: 2rem;
+    overflow-y: hidden;
+    z-index: 999;
+}
+
+.gif {
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 1px black;
+    width: 500px;
+}
+
+.characterWrapper {
+    position: relative;
+    cursor: pointer;
+    margin: 4rem 1rem;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    transition: all 2s;
+    -webkit-transition: all 2s;
+    -o-transition: all 2;
+    -moz-transition: all 2s;
+}
+
+.character {
+    width: 130px;
+    height: 350px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+    clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
+    -ms-clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
+    -o-clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
+    -webkit-clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
+}
+
+.villainWrapper {
+    opacity: 0;
+}
+
+#marvelContainer .character:after, #nonMcuContainer .character:after {
+    content: "";
+    background: #e62429; 
+    position: absolute;
+    left: 0;
+    top: 68%;
+    width: 100%;
+    height: 5px;
+    z-index: 1;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+#marvelContainer .villainWrapper .character:after, #nonMcuContainer .villainWrapper .character:after {
+    background: black; 
+}
+
+#dcContainer .character:after {
+    content: "";
+    background: #0282f9; 
+    position: absolute;
+    left: 0;
+    top: 68%;
+    width: 100%;
+    height: 5px;
+    z-index: 1;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+#dcBtnsWrapper {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#dcContainer .villainWrapper .character:after {
+    background: black; 
+}
+
+.characterOverlay {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    height: 7rem;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+#marvelContainer .villainWrapper .characterOverlay, #nonMcuContainer .villainWrapper .characterOverlay {
+    background-color: #e62429;
+}
+
+#dcContainer .villainWrapper .characterOverlay {
+    background-color: #0282f9;
+}
+
+.characterImg {
+    position: relative;
+    width: 100%;
+    height: 250px;  
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+.dustImg {
+    position: absolute;
+    top: 0;
+    left: 10rem;
+    height: 350px;
+    transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    z-index: 999;
+}
+
+.characterBtnWrapper {
+    position: absolute;
+    width: 100%;
+    top: -3.5rem;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+.addToFavoritesBtn {
+    width: 55px;
+    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.5));
+    z-index: 1;
+}
+
+.characterBtn {
+    width: 35px;
+    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
+}
+
+.characterBtnLoggedIn {
+    float: left;
+}
+
+.addToFavoritesBtnLoggedIn {
+    float: right;
+}
+
+.characterNameWrapper {
+    width: 100%;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    z-index: 3;
+    text-align: center;
+}
+
+.characterName {
+    width: 96%;
+    color: white;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.actorNameOverlay {
+    display: none;
+    width: 93%;
+    color: white;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.extraMovie .actorNameOverlay {
+    font-size: 1.05rem;
+}
+
+#superheroContent {
+    position: relative;
+    display: none;
+    width: 85%;
+    box-shadow: 0 1px 8px 1px #4caf50;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 2rem auto 2rem auto;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#killGifsBtnWrapper {
+    width: 100%;
+    text-align: center;
+}
+
+#movies a {
+    text-decoration: wavy;
+    color: #0061bd;
+    cursor: pointer;
+    margin-left: .2rem;
+    margin-right: .2rem;
+    font-weight: 600;
+}
+
+#videoContainer {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+iframe {
+    border-radius: 5px;
+    box-shadow: 0 1px 8px 1px #848484;
+}
+
+#instagramLink, #imdbLink {
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+#imdbLink {
+    text-decoration: none;
+}
+
+#instagramImg, #imdbImg, #twitterImg {
+    width: 35px;
+    height: 35px;
+}
+
+#actorImgWrapper {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 9.4rem;
+    border-radius: 5px;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    overflow: hidden;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+#actorImg {
+    width: 100px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+    border-radius: 5px;
+}
+
+#moreMoviesAppeared {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#moreMoviesContent {
+    display: none;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.extraMovieWrapper {
+    position: relative;
+    opacity: 0;
+    margin: 4rem 1rem;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+}
+
+.extraMovie {
+    position: relative;
+    width: 130px;
+    height: 380px;
+    background-color: black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+.extraMovie .characterOverlay {
+    background-color: black;
+}
+
+.extraMovie:after {
+    content: "";
+    background-color: darkorange;
+    position: absolute;
+    left: 0;
+    top: 65.7%;
+    width: 100%;
+    height: 5px;
+    z-index: 1;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+.extraMovieDate {
+    position: absolute;
+    top: -1.4rem;
+    background-color: lightgray;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 600;
+}
+
+.extraMovieNameWrapper {
+    width: 100%;
+    position: absolute;
+    top: -.5rem;
+    left: 0;
+    z-index: 3;
+    text-align: center;
+}
+
+.extraMovieName {
+    font-size: 1.05rem;
+    text-align: center;
+    width: 96%;
+    color: white;
+    margin: 0 auto;
+}
+
+.extraMovieImg {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+}
+
+.extraMovieVote {
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    z-index: 1;
+    margin: 0;
+    background-color: deepskyblue;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.extraMovieBtnWrapper {
+    position: absolute;
+    top: -5rem;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+}
+
+.extraMovieBtn {
+    width: 35px;
+}
+
+#mcuTimeline, #dcTimeline {
+    display: none;
+    margin-bottom: 2rem;
+}
+
+.timelineMovieName, .timelineMovieDate {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+}
+
+.timelineMovieWrapper {
+    width: 40%;
+    text-align: center;
+    z-index: 2;
+    transform: scale(.2);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+    -o-transition: transform .5s;
+    -moz-transition: transform .5s;
+    opacity: 0;
+}
+
+.timelineMovieWrapper:first-child, .timelineMovieWrapper:nth-child(2) {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.timelineMovieImg {
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    -moz-transition: .3s;
+    filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.9));
+}
+
+.timelineMovieWrapper:nth-child(odd) {
+    float: left;
+}
+
+.timelineMovieWrapper:nth-child(even) {
+    float: right;
+    margin-top: 18rem;
+}
+
+#mcuTimelineContent::after {
+    content:"";
+    position: absolute;
+    z-index: 1;
+    top: 6rem;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px solid #e62429;
+}
+
+#dcTimelineContent::after {
+    content:"";
+    position: absolute;
+    z-index: 1;
+    top: 6rem;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px solid #0282f9;
+}
+
+.goHomeBtnWrapper {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.marvelOddMovieWrapper::after {
+    height: 94%;
+}
+
+.marvelEvenMovieWrapper::after {
+    height: 95%;
+}
+
+.dcOddMovieWrapper::after {
+    height: 80%;
+}
+
+.dcEvenMovieWrapper::after {
+    height: 90%;
+}
+
+#goToTopBtn {
+    display: none;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    border-radius: 100%;
+    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
+}
+
+footer {
+    display: none;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    height: 6rem;
+    width: 100%;
+}
+
+#footerLink {
+    margin-right: .5rem;
+    padding-left: .5rem;
+}
+
+#tmdbImg {
+    width: 100px;
+    height: 70px;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+#signUpFormWrapper, #myAccountWrapper {
+    display: none;
+    margin-top: 11rem;
+}
+
+@media only screen and (min-width: 765px) { 
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #4EC953;
+    }
+
+    button:hover {
+        background: #03e9f4;
+        color: #050801;
+        box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 200px #03e9f4;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    }
+
+    #snap, #time, #snap2, #time2 {
+        cursor: pointer;
+    }
+
+    #header {
+        display: none;
+    }
+
+    .moveContainer {
+        opacity: 0.3;
+    }
+
+    .moveLine {
+        opacity: 0.3;
+        padding-top: 8rem;
+    }
+
+    #marvelContainer .character:hover:after, #dcContainer .character:hover:after, #nonMcuContainer .character:hover:after {
+        height: 112px;
+        border-top: 5px solid white;
+    }
+
+    #actorImgWrapper:hover {
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    }
+
+    #actorImgWrapper:hover > #actorImdbLink > #actorImg {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+    }
+
+    .extraMovie:hover {
+        -webkit-box-reflect: below -12rem linear-gradient(transparent, #0005);
+    }
+
+    .extraMovie:hover:after {
+        height: 104px;
+        border-top: 5px solid white;
+    }
+    
+    .extraMovie:hover > .characterOverlay .extraMovieName {
+        display: none;
+    }
+
+    .extraMovie:hover > .characterOverlay .actorNameOverlay {
+        display: block;
+    }
+
+    .character:hover > .characterOverlay .characterName {
+        display: none;
+    }
+
+    .character:hover > .characterOverlay .actorNameOverlay {
+        display: block;
+    }
+
+    .characterWrapper:hover {
+        -webkit-box-reflect: below -12rem linear-gradient(transparent, #0005);
+    }
+
+    .character:hover > .characterImg {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transition: .3s;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        -moz-transition: .3s;
+        transform-origin: 50% 50%;
+    }
+
+    .extraMovieLink:hover > .extraMovieImg {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transition: .3s;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        -moz-transition: .3s;
+        transform-origin: 50% 50%;
+    }
+
+    .timelineMovieImg:hover {
+        transform: scale(1.1) rotate(3deg);
+        -webkit-transform: scale(1.1) rotate(3deg);
+        -moz-transform: scale(1.1) rotate(3deg);
+        -o-transform: scale(1.1) rotate(3deg);
+        -ms-transform: scale(1.1) rotate(3deg);
+        transform-origin: 50% 50%;
+    }
+
+    #movies a:hover {
+        color: #4caf50;
+    }
+}
+
+@media only screen and (max-width: 1200px) { 
+
+    .marvelOddMovieWrapper::after {
+        height: 93%;
+    }
+    
+    .marvelEvenMovieWrapper::after {
+        height: 94%;
+    }
+    
+    .dcOddMovieWrapper::after {
+        height: 77%;
+    }
+    
+    .dcEvenMovieWrapper::after {
+        height: 87%;
+    }
+
+    .timelineMovieWrapper:nth-child(even) {
+        margin-top: 12rem;
+    }
+
+    .timelineMovieImg {
+        width: 300px;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+
+    .searchContant {
+        width: 80%;
+    }
+
+    .marvelOddMovieWrapper::after {
+        height: 92%;
+    }
+    
+    .dcOddMovieWrapper::after {
+        height: 72%;
+    }
+    
+    .dcEvenMovieWrapper::after {
+        height: 82%;
+    }
+
+    .timelineMovieWrapper:nth-child(even) {
+        margin-top: 8rem;
+    }
+
+    .timelineMovieImg {
+        width: 250px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    
+    #signUpBtn {
+        display: none;
+    }
+
+    .menuOpenWrapper {
+        top: 1rem;
+    }
+
+    #signUpFormWrapper, #myAccountWrapper {
+        margin-top: 5rem;
+    }
+
+    #myBar {
+        display: none;
+    }
+
+    #overlay {
+        padding-top: 1rem;
+    }
+
+    #openningGif {
+        width: 200px;
+    }
+
+    #snap, #time {
+        top: unset;
+        bottom: 2rem;
+        left: 2rem;
+    }
+
+    .searchContainer {
+        padding-top: 1rem;
+        margin-top: 4rem;
+    }
+
+    #marvelBtnsWrapper, #dcBtnsWrapper {
+        margin-bottom: 2rem;
+    }
+
+    .timelineMovieWrapper {
+        width: 100%;
+        float: none !important;
+    }
+
+    .timelineMovieWrapper:nth-child(even) {
+        margin-top: 2rem;
+    }
+
+    #mcuTimeline::after, #dcTimeline::after {
+        height: 100%;
+        opacity: .2;
+    }
+
+    .marvelOddMovieWrapper::after, .marvelEvenMovieWrapper::after, .dcOddMovieWrapper::after, .dcEvenMovieWrapper::after {
+        height: 98%;
+        opacity: .2;
+    }
+
+    .timelineMovieImg {
+        width: 400px;
+        height: 200px;
+    }
+
+    #goToTopBtn {
+        width: 50px;
+        height: 50px;
+        right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 550px) { 
+
+    .resultImg {
+        margin-left: 1rem;
+    }
+
+    .resultName {
+        padding-right: 1rem;
+    }
+
+    .gif {
+        width: 90%;
+    }
+
+    #actorImgWrapper {
+        position: static;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 450px) { 
+
+    .timelineMovieImg {
+        width: 90%;
+        height: unset;
+    }
+
+    #videoContainer {
+        width: 90%;
+        margin: 2rem auto;
+    }
+    
+    iframe {
+        width: 460px;
+        height: 215px;
+    }
+
+    .extraMovie {
+        width: 98px;
+        height: 288px;
+    }
+
+    .extraMovieDate {
+        font-size: .76rem;
+        top: -1rem;
+    }
+
+    .extraMovieImg {
+        height: 170px;
+    }
+
+    .extraMovieNameWrapper {
+        top: .3rem;
+    }
+
+    .extraMovieName, .extraMovie .actorNameOverlay {
+        font-size: .8rem;
+    }
+
+    .extraMovie:after {
+        top: 59%;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+
+    button {
+        padding: 1rem .5rem;
+        font-size: .9rem;
+        width: 8rem;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .character {
+        width: 100px;
+        height: 277px;
+    }
+
+    .characterName, .actorNameOverlay {
+        font-size: .92rem;
+    }
+
+    .characterImg {
+        height: 165px;
+    }
+
+    #dcContainer .character:after, #marvelContainer .character:after, #nonMcuContainer .character:after {
+        top: 59.5%;
+    }
+}
+
+@media only screen and (max-width: 350px) { 
+
+    #videoContainer {
+        width: 100%;
+        margin: 2rem auto;
+    }
+    
+    iframe {
+        width: 100%;
+        height: 215px;
+    }
+
+}
