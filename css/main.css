@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'font';
-    src: url('../fonts/Roboto.ttf');
+    src: url('./fonts/Roboto.ttf');
 }
 
 html, body {
@@ -11,7 +11,7 @@ html, body {
     overflow-y: hidden;
     overflow-x: hidden;
     margin: 0;
-    background: url('../images/background11.jpg') no-repeat center center fixed;
+    background: url('./images/background11.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: 0.4s;
     -webkit-transition: 0.4s;
@@ -204,11 +204,9 @@ h2 {
     margin-bottom: 1rem;
 }
 
-
 #menu img {
     width: 50px;
     height: 50px;
-    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.7)); */
 }
 
 #userNameHeader {
@@ -338,7 +336,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/snap.png') 0px 0px;
+    url('./images/snap.webp') 0px 0px;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
@@ -351,7 +349,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/time.png') 0px 0px;
+    url('./images/time.webp') 0px 0px;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
@@ -360,7 +358,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/snap.png') 0px 0px;
+    url('./images/snap.webp') 0px 0px;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
@@ -370,7 +368,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/time.png') 0px 0px;
+    url('./images/time.webp') 0px 0px;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
@@ -688,7 +686,7 @@ main {
 }
 
 #lineMarvel span {
-    background: url(../images/ironman.webp) no-repeat 50% 50%;
+    background: url(./images/ironman.webp) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -697,7 +695,7 @@ main {
 }
 
 #lineNonMcu span {
-    background: url(../images/wolverine.webp) no-repeat 50% 50%;
+    background: url(./images/wolverine.webp) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -706,7 +704,7 @@ main {
 }
 
 #lineDc span {
-    background: url(../images/superman.webp) no-repeat 50% 50%;
+    background: url(./images/superman.webp) no-repeat 50% 50%;
     background-size: 60px 60px;
 }
 
@@ -1291,7 +1289,7 @@ footer p {
     }
 
     .extraMovie:hover:after {
-        height: 104px;
+        height: 106px;
         border-top: 5px solid white;
     }
     
