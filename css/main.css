@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'font';
-    src: url('./fonts/Roboto.ttf');
+    src: url('../fonts/Roboto.ttf');
 }
 
 html, body {
@@ -11,7 +11,7 @@ html, body {
     overflow-y: hidden;
     overflow-x: hidden;
     margin: 0;
-    background: url('./images/background11.jpg') no-repeat center center fixed;
+    background: url('../images/background11.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: 0.4s;
     -webkit-transition: 0.4s;
