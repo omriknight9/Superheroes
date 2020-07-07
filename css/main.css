@@ -686,7 +686,7 @@ main {
 }
 
 #lineMarvel span {
-    background: url(./images/ironman.webp) no-repeat 50% 50%;
+    background: url(../images/ironman.webp) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -695,7 +695,7 @@ main {
 }
 
 #lineNonMcu span {
-    background: url(./images/wolverine.webp) no-repeat 50% 50%;
+    background: url(../images/wolverine.webp) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -704,7 +704,7 @@ main {
 }
 
 #lineDc span {
-    background: url(./images/superman.webp) no-repeat 50% 50%;
+    background: url(../images/superman.webp) no-repeat 50% 50%;
     background-size: 60px 60px;
 }
 
