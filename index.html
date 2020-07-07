@@ -1,0 +1,229 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Superheroes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1, user-scalable=yes">
+    <meta name="description" content="Superheroes">
+    <link rel="shortcut icon" type="image/x-icon" href="images/captainAmericaShield.webp" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/registration.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/parse/dist/parse.min.js"></script>
+    <script type="text/javascript" src="js/userManagment.min.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="overlay">
+        <img src="../images/openning.gif" alt="openning" id="openningGif">
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar" style="width: 0%;"></div>
+    </div>
+
+    <div class="spinnerWrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+            <div class="bounce4"></div>
+        </div>
+    </div>
+
+    <div id="snap" onclick="animateScript(event, 1)" class="infinityGauntlet">
+        <audio class="igSound" src="https://www.google.com/logos/fnbx/thanos/thanos_snap_sound.mp3"></audio>
+    </div>
+    <div id="time" onclick="animateScript(event, 2)">
+        <audio class="igSound" src="https://www.google.com/logos/fnbx/thanos/thanos_reverse_sound.mp3"></audio>
+    </div>
+
+    <main>
+        <h2 id="userNameHeader"></h2>
+        <div id="header">
+            <img src="./images/ironman.webp" alt="section" id="marvelHeaderImg" onclick="goToDiv('#lineMarvel')">
+            <img src="./images/wolverine.webp" alt="section" id="nonMcuHeaderImg" onclick="goToDiv('#nonMcuContainer')">
+            <img src="./images/superman.webp" alt="section" id="dcHeaderImg" onclick="goToDiv('#dcContainer')">
+            <img src="../images/user.webp" alt="user" onclick="goToSignUp()" id="signUpBtnHeader">
+        </div>
+
+        <div class="menuOpenWrapper" onclick="toggleClass($('#toggle')[0], 'on')">
+            <div href="#menu" id="toggle">
+                <span class="menuSpan"></span>
+                <span class="menuSpan"></span>
+                <span class="menuSpan"></span>
+                <span class="menuSpan"></span>
+                <span class="menuSpan"></span>
+                <span class="menuSpan"></span>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li onclick="goToMyAccount()">My Account</li>
+                    <li onclick="showFavorites(1)" id="favoritesBtn">Show Favorites</li>
+                    <li onclick="logOut()">Logout</li>
+                    <li><img src="./images/ironman.webp" alt="section" id="marvelHeaderImg" onclick="goToDiv('#lineMarvel')"></li>
+                    <li><img src="./images/wolverine.webp" alt="section" id="nonMcuHeaderImg" onclick="goToDiv('#nonMcuContainer')"></li>
+                    <li><img src="./images/superman.webp" alt="section" id="dcHeaderImg" onclick="goToDiv('#dcContainer')"></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <img src="../images/user.webp" alt="user" onclick="goToSignUp()" id="signUpBtn">
+
+        <div id="signUpFormWrapper"></div>
+
+        <div id="myAccountWrapper"></div>
+
+        <div class="searchContainer">
+            <div class="searchContant">
+                <input type="text" placeholder="Search Superhero" id="search" aria-label="Search" autocomplete="off" />
+                <span class="focus-border"></span>
+                <div id="searchResults"></div>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+
+        <div id="mainContent" class="mainHeroes">
+
+            <div id="gifWrapper"></div>
+
+            <div class="lineWrapper">
+                <div class="line" id="lineMarvel">
+                    <span class="headerLogo" id="headerLogoMarvel"></span>
+                </div>
+            </div>
+    
+            <div id="marvelContainer" class="container">
+                <div id="marvelBtnsWrapper">
+ 
+                    <div id="snap2" onclick="animateScript2(event, 1)" class="infinityGauntlet">
+                        <audio class="igSound" src="https://www.google.com/logos/fnbx/thanos/thanos_snap_sound.mp3"></audio>
+                    </div>
+                    <div id="time2" onclick="animateScript2(event, 2)">
+                        <audio class="igSound" src="https://www.google.com/logos/fnbx/thanos/thanos_reverse_sound.mp3"></audio>
+                    </div>
+                    <button id="mcuTimelineBtn" onclick="timeline(1)">MCU Timeline
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lineWrapper moveLine" name="nonMcuLineWrapper">
+                <div class="line" id="lineNonMcu">
+                    <span class="headerLogo" id="headerLogoNonMcu"></span>
+                </div>
+            </div>
+    
+            <div id="nonMcuContainer" class="container moveContainer"></div>
+    
+            <div class="lineWrapper moveLine" name="dcLineWrapper">
+                <div class="line" id="lineDc">
+                    <span class="headerLogo" id="headerLogoDc"></span>
+                </div>
+            </div>
+
+            <div id="dcContainer" class="container moveContainer">
+                <div id="dcBtnsWrapper">
+                    <button onclick="timeline(2)">DCEU Timeline
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div id="superheroContent">
+                <div id="killGifsBtnWrapper">
+                    <button onclick="hideGifs()" id="killGifsBtn">Hide Gifs
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                
+                <div id="actorImgWrapper">
+                    <a href="" target="_blank" id="actorImdbLink" rel="noopener">
+                        <img src="" alt="actor" id="actorImg">
+                    </a>
+                </div>
+
+                <div id="characterDetails">
+                    <p id="characterName"></p>
+                    <p id="fullName"></p>
+                    <div id="actorWrapper">
+                        <p id="actorName"></p>
+                        <a href="" id="instagramLink" target="_blank" rel="noopener">
+                            <img src="./images/instagram.webp" alt="instagram" id="instagramImg">
+                        </a>
+                        <a href="" id="imdbLink" target="_blank" rel="noopener">
+                            <img src="./images/imdb.webp"  alt="imdb" id="imdbImg">
+                        </a>
+                        <a href="" id="twitterLink" target="_blank" rel="noopener">
+                            <img src="./images/twitter.webp"  alt="twitter" id="twitterImg">
+                        </a>
+                    </div>
+                    <p id="firstAppearance"></p>
+                    <p id="publisher"></p>
+                    <p id="work"></p>
+                    <p id="movies">Movies Appeared:</p>
+                    <div id="moreMoviesAppeared">
+                        <button id="moreMoviesBtn" onclick="showMoreMovies()">More Movies
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <div id="moreMoviesContent"></div>
+                    </div>
+                    <div id="videoContainer">
+                        <iframe id="characterVideo" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mcuTimeline">
+            <div class="goHomeBtnWrapper">
+                <button onclick="goHome()">Home
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div id="mcuTimelineContent" class="container"></div>
+        </div>
+        <div id="dcTimeline" class="container">
+            <div class="goHomeBtnWrapper">
+                <button onclick="goHome()">Home
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div id="dcTimelineContent" class="container"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        <a href="https://www.themoviedb.org/" rel="noopener" target="_blank" id="footerLink">
+            <img src="../images/tmdb.webp" alt="tmdb" id="tmdbImg">
+        </a>
+        <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+    </footer>
+    <img src="images/upBtn.webp" alt="up arrow" id="goToTopBtn" onclick="goToTop()" />
+</body>
+</html>
