@@ -1,0 +1,12 @@
+{
+ "movies":[
+     {"id":1, "name":"Man Of Steel", "date":"06/14/2013", "image":"DC/manOfSteel.jpg", "value":"49521"},
+     {"id":2, "name":"Batman V Superman: Dawn Of Justice", "date":"03/25/2016", "image":"DC/batmanVSupermanDawnOfJustice.jpg", "value":"209112"},
+     {"id":3, "name":"Suicide Squad", "date":"08/05/2016", "image":"DC/suicideSquad.jpg", "value":"297761"},
+     {"id":4, "name":"Wonder Woman", "date":"06/02/2017", "image":"DC/wonderWoman.jpg", "value":"297762"},
+     {"id":5, "name":"Justice League", "date":"11/17/2017", "image":"DC/justiceLeague.jpg", "value":"141052"},
+     {"id":6, "name":"Shazam", "date":"04/05/2019", "image":"DC/shazam.jpg", "value":"287947"},
+     {"id":7,"name":"Birds Of Prey: And The Fantabulous Emancipation Of One Harley Quinn","date":"02/07/2020","image":"DC/birdsOfPrey.jpg", "value":"495764"}
+
+   ]
+}

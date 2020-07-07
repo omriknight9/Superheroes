@@ -1,0 +1,43 @@
+
+{
+    "movies" : [
+        {
+        "644": [
+            "Superman", {"movieValue": 1924}, "Superman II", {"movieValue": 8536}, "Superman III", {"movieValue": 9531},
+            "Superman IV", {"movieValue": 11411}, "Superman Returns", {"movieValue": 1452}, "Man Of Steel", {"movieValue": 49521},
+            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "70": [
+            "Batman", {"movieValue": 268}, "Batman Returns", {"movieValue": 364}, "Batman Forever", {"movieValue": 414},
+            "Batman & Robin", {"movieValue": 415}, "Batman Begins", {"movieValue": 272}, "The Dark Knight", {"movieValue": 155},
+            "The Dark Knight Rises", {"movieValue": 49026}, "Batman v Superman: Dawn Of Justice", {"movieValue": 209112},
+            "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "265": [
+            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "720": [
+            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Wonder Woman", {"movieValue": 297762},
+            "Justice League", {"movieValue": 141052}, "Wonder Woman 1984", {"movieValue": 464052}
+        ]},
+        {
+        "38": [
+            "Justice League", {"movieValue": 141052}, "Aquaman", {"movieValue": 297802}
+        ]},
+        {
+        "194": [
+            "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "156": [
+            "Shazam", {"movieValue": 287947}
+        ]},
+        {
+        "309": [
+            "Suicide Squad", {"movieValue": 297761}, "Birds Of Pray", {"movieValue": 495764}
+        ]}
+    ]
+}

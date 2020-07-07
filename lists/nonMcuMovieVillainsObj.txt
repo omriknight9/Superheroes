@@ -1,0 +1,44 @@
+{
+    "movies" : [
+        {
+        "423": [
+            "X-Men", {"movieValue": 36657}, "X2", {"movieValue": 36658}, "X-Men: The Last Stand", {"movieValue": 36668},
+            "X-Men: First Class", {"movieValue": 49538}, "The Wolverine", {"movieValue": 76170},
+            "X-Men: Days Of Future Past", {"movieValue": 127585}, "X-Men: Apocalypse", {"movieValue": 246655},
+            "X-Men: Dark Phoenix", {"movieValue": 320288}
+        ]},
+        {
+        "570": [
+            "X-Men", {"movieValue": 36657}, "X-Men Origins: Wolverine", {"movieValue": 2080}
+        ]},
+        {
+        "670": [
+            "X-Men", {"movieValue": 36657}, "X2", {"movieValue": 36658}, "X-Men: Days Of Future Past", {"movieValue": 127585}
+        ]},
+        {
+        "374": [
+            "X-Men: The Last Stand", {"movieValue": 36668}, "Deadpool 2", {"movieValue": 383498}
+        ]},
+        {
+        "582": [
+            "X-Men: First Class", {"movieValue": 49538}
+        ]},
+        {
+        "35": [
+            "X-Men: Apocalypse", {"movieValue": 246655}
+        ]},
+        {
+        "222": [
+             "Fantastic Four", {"movieValue": 9738}, "Fantastic Four: Rise Of The Silver Surfer", {"movieValue": 1979},
+             "Fantastic Four", {"movieValue": 166424}
+        ]},
+        {
+        "13": [
+             "Deadpool", {"movieValue": 293660}
+        ]},
+        {
+        "145": [
+             "Deadpool 2", {"movieValue": 383498}
+        ]}
+    ]
+}

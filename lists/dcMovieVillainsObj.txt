@@ -1,0 +1,35 @@
+{
+    "movies" : [
+        {
+        "278": [
+            "Superman II", {"movieValue": 8536}, "Man Of Steel", {"movieValue": 49521}
+        ]},
+        {
+        "405": [
+             "Superman", {"movieValue": 1924}, "Superman II", {"movieValue": 8536}, "Superman IV", {"movieValue": 11411},
+             "Superman Returns", {"movieValue": 1452}, "Batman v Superman: Dawn Of Justice", {"movieValue": 209112},
+             "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "230": [
+             "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}
+        ]},
+        {
+        "242": [
+             "Suicide Squad", {"movieValue": 297761}
+        ]},
+        {
+        "637": [
+             "Justice League", {"movieValue": 141052}
+        ]},
+        {
+        "370": [
+             "Batman", {"movieValue": 268}, "The Dark Knight", {"movieValue": 155}, "Suicide Squad", {"movieValue": 297761},
+             "Joker", {"movieValue": 475557}
+        ]},
+        {
+        "3000": [
+             "Shazam", {"movieValue": 287947}
+        ]}
+    ]
+}

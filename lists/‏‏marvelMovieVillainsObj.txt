@@ -1,0 +1,84 @@
+{
+    "movies" : [
+        {
+        "347": [
+            "Iron Man", {"movieValue": 1726}
+        ]},
+        {
+        "4": [
+            "The Incredible Hulk", {"movieValue": 1724}
+        ]},
+        {
+        "2000": [
+             "Iron Man 2", {"movieValue": 10138}
+        ]},
+        {
+        "414": [
+            "Thor", {"movieValue": 10195}, "The Avengers", {"movieValue": 24428}, "Thor: The Dark World", {"movieValue": 76338},
+            "Avengers: Age Of Ultron", {"movieValue": 99861}, "Thor: Ragnarok", {"movieValue": 284053}, "Avengers: Infinity War", {"movieValue": 299536},
+            "Avengers: Endgame", {"movieValue": 299534}
+        ]},
+        {
+        "550": [
+            "Captain America: The First Avenger", {"movieValue": 1771}, "Avengers: Endgame", {"movieValue": 299534}
+        ]},
+        {
+        "2001": [
+            "Iron Man 3", {"movieValue": 68721}
+        ]},
+        {
+        "2002": [
+            "Thor: The Dark World", {"movieValue": 76338}
+        ]},
+        {
+        "2003": [
+            "Captain America: The Winter Soldier", {"movieValue": 100402}, "Captain America: Civil War", {"movieValue": 271110},
+            "Avengers: Endgame", {"movieValue": 299534}
+        ]},
+        {
+        "2004": [
+            "Guardians Of The Galaxy", {"movieValue": 118340}, "Captain Marvel", {"movieValue": 299537}
+        ]},
+        {
+        "680": [
+            "Avengers: Age Of Ultron", {"movieValue": 99861}
+        ]},
+        {
+        "726": [
+            "Ant-Man", {"movieValue": 102899}
+        ]},
+        {
+        "2005": [
+            "Captain America: Civil War", {"movieValue": 271110}
+        ]},
+        {
+        "232": [
+            "Doctor Strange", {"movieValue": 284052}
+        ]},
+        {
+        "235": [
+             "Guardians Of The Galaxy 2", {"movieValue": 283995}
+        ]},
+        {
+        "701": [
+             "Spiderman: Homecoming", {"movieValue": 315635}
+        ]},
+        {
+        "321": [
+             "Thor: Ragnarok", {"movieValue": 284053}
+        ]},
+        {
+        "2006": [
+             "Black Panther", {"movieValue": 284054}
+        ]},
+        {
+        "655": [
+             "Avengers: Infinity War", {"movieValue": 299536},
+             "Avengers: Endgame", {"movieValue": 299534}
+        ]},
+        {
+        "479": [
+              "Spider-Man: Far From Home", {"movieValue": 429617}
+        ]}
+    ]
+}

@@ -1,0 +1,14 @@
+
+
+{
+    "characters" : [
+        { "id": 1, "name": "Superman", "characterId": "644", "image": "heroes/dc/superman.jpg", "gif": "heroes/gifs/dc/superman.gif", "time": 2800, "video": "Hc0Aj21QrHY", "actor": "Henry Cavill", "instagram": "henrycavill", "imdb": "nm0147147", "actorId": 73968},
+        { "id": 2, "name": "Batman", "characterId": "70", "image": "heroes/dc/batman.jpg", "gif": "heroes/gifs/dc/batman.gif", "time": 1600, "video": "rRlfzy7Rxdo", "actor": "Ben Affleck", "instagram": "benaffleck", "imdb": "nm0000255", "actorId": 880},
+        { "id": 3, "name": "Flash", "characterId": "265", "image": "heroes/dc/flash.jpg", "gif": "heroes/gifs/dc/flash.gif", "time": 2000, "video": "3sP7UMxhGYw", "actor": "Ezra Miller", "instagram": "null", "imdb": "nm3009232", "actorId": 132157},
+        { "id": 4, "name": "Wonder Woman", "characterId": "720", "image": "heroes/dc/wonderWoman.jpg", "gif": "heroes/gifs/dc/wonderWoman.gif", "time": 2000, "video": "c2k_kuU84ro", "actor": "Gal Gadot", "instagram": "gal_gadot", "imdb": "nm2933757", "actorId": 90633},
+        { "id": 5, "name": "Aquaman", "characterId": "38", "image": "heroes/dc/aquaman.jpg", "gif": "heroes/gifs/dc/aquaman.gif", "time": 2200, "video": "0y5KiKKCD7A", "actor": "Jason Momoa", "instagram": "prideofgypsies", "imdb": "nm0597388", "actorId": 117642},
+        { "id": 6, "name": "Cyborg", "characterId": "194", "image": "heroes/dc/cyborg.jpg", "gif": "heroes/gifs/dc/cyborg.gif", "time": 2200, "video": "DFYe0VSusdQ", "actor": "Ray Fisher", "instagram": "ray8fisher", "imdb": "nm3570321", "actorId": 1313559},
+        { "id": 7, "name": "Shazam", "characterId": "156", "image": "heroes/dc/shazam.jpg", "gif": "heroes/gifs/dc/shazam.gif", "time": 2300, "video": "xJR1JYs3a4M", "actor": "Zachary Levi", "instagram": "zacharylevi", "imdb": "nm1157048", "actorId": 69899},
+        { "id": 8, "name": "Harley Quinn", "characterId": "309", "image": "heroes/dc/harleyQuinn.jpg", "gif": "heroes/gifs/dc/harleyQuinn.gif", "time": 2500, "video": "7TC5Tk_rJU8", "actor": "Margot Robbie", "instagram": "margotrobbie", "imdb": "nm3053338", "actorId": 234352}
+    ]
+}

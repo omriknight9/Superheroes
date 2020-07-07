@@ -1,0 +1,14 @@
+
+{
+    "characters" : [
+        { "id": 1, "name": "Magneto", "characterId": "423",  "image": "villains/marvel/magneto.jpg", "gif": "villains/gifs/marvel/magneto.gif", "time": 1700, "video": "854gpkK-Fsc", "actor": "Ian McKellen", "instagram": "ianmckellen", "imdb": "nm0005212", "actorId": 1327},
+        { "id": 2, "name": "Sabretooth", "characterId": "570",  "image": "villains/marvel/sabretooth.jpg", "gif": "villains/gifs/marvel/sabretooth.gif", "time": 3000, "video": "0N7ZDpIbx10", "actor": "Liev Schreiber", "instagram": "lievschreiber", "imdb": "nm0000630", "actorId": 23626},
+        { "id": 3, "name": "Toad", "characterId": "670",  "image": "villains/marvel/toad.jpg", "gif": "villains/gifs/marvel/toad.gif", "time": 1800, "video": "MxCWFpyRzCY", "actor": "Ray Park", "instagram": "iamraypark", "imdb": "nm0661917", "actorId": 11007},
+        { "id": 4, "name": "Juggernaut", "characterId": "374",  "image": "villains/marvel/juggernaut.jpg", "gif": "villains/gifs/marvel/juggernaut.gif", "time": 1500, "video": "g8pFBk-QFO4", "actor": "Vinnie Jones", "instagram": "thevinniejones", "imdb": "nm0005068", "actorId": 980},
+        { "id": 5, "name": "Sebastian Shaw", "characterId": "582",  "image": "villains/marvel/sebastianShaw.jpg", "gif": "villains/gifs/marvel/sebastianShaw.gif", "time": 1000, "video": "cLnJqTtnFPc", "actor": "Kevin Bacon", "instagram": "kevinbacon", "imdb": "nm0000102", "actorId": 4724},
+        { "id": 6, "name": "Apocalypse", "characterId": "35",  "image": "villains/marvel/apocalypse.jpg", "gif": "villains/gifs/marvel/apocalypse.gif", "time": 1000, "video": "0zDqW2-_uU8", "actor": "Oscar Isaac", "instagram": "null", "imdb": "nm1209966", "actorId": 25072},
+        { "id": 7, "name": "Dr. Doom", "characterId": "222",  "image": "villains/marvel/drDoom.jpg", "gif": "villains/gifs/marvel/drDoom.gif", "time": 2500, "video": "w9V8P1H9nx4", "actor": "Julian McMahon", "instagram": "julianmcmahonofficial", "imdb": "nm0573037", "actorId": 20402},
+        { "id": 8, "name": "Ajax", "characterId": "13",  "image": "villains/marvel/ajax.jpg", "gif": "villains/gifs/marvel/ajax.gif", "time": 2500, "video": "sLJ_rGf51zo", "actor": "Ed Skrein", "instagram": "edskrein", "imdb": "nm4534098", "actorId": 1047649},
+        { "id": 9, "name": "Cable", "characterId": "145",  "image": "villains/marvel/cable.jpg", "gif": "villains/gifs/marvel/cable.gif", "time": 3000, "video": "xeA_uHqUoZs", "actor": "Josh Brolin", "instagram": "joshbrolin", "imdb": "nm0000982", "actorId": 16851}
+    ]
+}

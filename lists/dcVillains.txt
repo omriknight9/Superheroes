@@ -1,0 +1,12 @@
+
+{
+    "characters" : [
+        { "id": 1, "name": "Zod", "characterId": "278",  "image": "villains/dc/zod.jpg", "gif": "villains/gifs/dc/zod.gif", "time": 1700, "video": "lpod4qQzO7Q", "actor": "Michael Shannon", "instagram": "null", "imdb": "nm0788335", "actorId": 335},
+        { "id": 2, "name": "Lex Luthor", "characterId": "405",  "image": "villains/dc/lexLuthor.jpg", "gif": "villains/gifs/dc/lexLuthor.gif", "time": 2000, "video": "vq85FS3lu3U", "actor": "Jesse Eisenberg", "instagram": "null", "imdb": "nm0251986", "actorId": 44735},
+        { "id": 3, "name": "Doomsday", "characterId": "230",  "image": "villains/dc/doomsday.jpg", "gif": "villains/gifs/dc/doomsday.gif", "time": 2200, "video": "PsRTAWDrNYo", "actor": "null", "instagram": "null", "imdb": "null", "actorId": "null"},
+        { "id": 4, "name": "Enchantress", "characterId": "242",  "image": "villains/dc/enchantress.jpg", "gif": "villains/gifs/dc/enchantress.gif", "time": 1200, "video": "MD-2Ty-5C7Q", "actor": "Cara Delevingne", "instagram": "caradelevingne", "imdb": "nm5353321", "actorId": 1289968},
+        { "id": 5, "name": "Steppenwolf", "characterId": "637",  "image": "villains/dc/steppenwolf.jpg", "gif": "villains/gifs/dc/steppenwolf.gif", "time": 3000, "video": "f2FzrfnfQPY", "actor": "null", "instagram": "null", "imdb": "null", "actorId": "null"},
+        { "id": 6, "name": "Joker", "characterId": "370",  "image": "villains/dc/joker.jpg", "gif": "villains/gifs/dc/joker.gif", "time": 2200, "video": "4QYJgxkFajI", "actor": "Joaquin Phoenix", "instagram": "null", "imdb": "nm0001618", "actorId": 73421},
+        { "id": 7, "name": "Dr. Sivana", "characterId": "3000",  "image": "villains/dc/sivana.jpg", "gif": "villains/gifs/dc/sivana.gif", "time": 1500, "video": "K8P90Ii4i30", "actor": "Mark Strong", "instagram": "mrmarkstrong", "imdb": "nm0835016", "actorId": 2983}
+    ]
+}
