@@ -24,7 +24,10 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </button> 
+            </button>
+            
+            <img src="./images/facebookSignup.jpg" alt="facebook" id="facebookSignup" onclick="facebookLogIn">
+
             <p class="logInDesc">Already Have An Account?</p>
             <p id="showSignInFormBtn" onclick="showSignInForm()">Log In</p> 
             <p id="emailMessage">You Will Receive A Confirmation Email</p> 
@@ -39,14 +42,14 @@
             <input type="text" name="username" id="usernameSignIn" class="signUpInput" placeholder="Username" onclick="BackColor($(this), '1px solid #d3d3d3')">
             <input type="password" placeholder="Password" id="passwordSignIn" class="signUpInput" onclick="BackColor($(this), '1px solid #d3d3d3')">
 
-            <button onclick="logIn()" class="signUpButton">Log In
+            <button onclick="logIn(1)" class="signUpButton">Log In
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <img src="./images/facebook.png" alt="facebook" id="facebook" onclick="link()">
+            <img src="./images/facebookLogin.png" alt="facebook" id="facebookLogin" onclick="facebookLogIn()">
 
             <p class="logInDesc">Don't Have An Account?</p>
             <p id="showSignUpFormBtn" onclick="showSignUpForm()">Sign In</p> 
