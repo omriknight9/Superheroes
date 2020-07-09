@@ -96,7 +96,6 @@ Log in form
     -moz-transition: 0.4s;
     -o-transition: 0.4s;
     padding-bottom: 1rem;
-    height: 370px;
     border-radius: 17px;
 }
 
@@ -169,10 +168,15 @@ Log in form
     transition: .3s all;
 }
 
-#facebook {
+#facebookLogin, #facebookSignup {
     width: 60%;
     display: block;
     margin: auto;
+    width: 400px;
+}
+
+#facebookSignup {
+    border-radius: 5px;
 }
 
 .logInDesc {
@@ -364,7 +368,7 @@ Animation Keyframes
 
 @media only screen and (min-width: 765px) {
 
-    #facebook {
+    #facebookLogin, #facebookSignup {
         width: 60%;
         display: block;
         margin: auto;
