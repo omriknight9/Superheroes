@@ -167,7 +167,13 @@ Log in form
     text-shadow: 0 -1px 0 #000;
     width: 400px;
     transition: .3s all;
-}	
+}
+
+#facebook {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
 
 .logInDesc {
     color: white;
@@ -357,6 +363,13 @@ Animation Keyframes
 }
 
 @media only screen and (min-width: 765px) {
+
+    #facebook {
+        width: 60%;
+        display: block;
+        margin: auto;
+        cursor: pointer;
+    }
 
     .signUpButton:hover {
         -webkit-box-reflect: unset;
