@@ -168,17 +168,6 @@ Log in form
     transition: .3s all;
 }
 
-#facebookLogin, #facebookSignup {
-    width: 60%;
-    display: block;
-    margin: auto;
-    width: 400px;
-}
-
-#facebookSignup {
-    border-radius: 5px;
-}
-
 .logInDesc {
     color: white;
     display: inline-block;
@@ -367,13 +356,6 @@ Animation Keyframes
 }
 
 @media only screen and (min-width: 765px) {
-
-    #facebookLogin, #facebookSignup {
-        width: 60%;
-        display: block;
-        margin: auto;
-        cursor: pointer;
-    }
 
     .signUpButton:hover {
         -webkit-box-reflect: unset;
