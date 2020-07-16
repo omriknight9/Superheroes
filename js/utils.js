@@ -36,10 +36,10 @@ function capitalize(str) {
 function scrollBtn() {
 
     if ($(this).scrollTop() > 550) {
-        $('#goToTopBtn').fadeIn();
+        $('#upBtnWrapper').fadeIn();
     }
     else {
-        $('#goToTopBtn').fadeOut();
+        $('#upBtnWrapper').fadeOut();
     }
 }
 
