@@ -17,6 +17,7 @@ html, body {
     -webkit-transition: 0.4s;
     -moz-transition: 0.4s;
     -o-transition: 0.4s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar-track {
