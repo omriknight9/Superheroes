@@ -134,6 +134,10 @@
         {
         "157": [
             "Captain Marvel", {"movieValue": 299537}, "Avengers: Endgame", {"movieValue": 299534}
+        ]},
+        {
+        "684": [
+            "Valkyrie", {"movieValue": 299537}, "Thor: Ragnarok", {"movieValue": 284053}, "Avengers: Endgame", {"movieValue": 299534}
         ]}
     ]
 }
