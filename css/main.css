@@ -904,18 +904,19 @@ main {
     font-weight: 600;
 }
 
-#videoContainer {
+#actorImages {
     display: flex;
     box-sizing: border-box;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 
-iframe {
+.actorProfileImg {
+    width: 4rem;
     border-radius: 5px;
-    box-shadow: 0 1px 8px 1px #848484;
+    margin: .5rem;
+    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
 }
 
 #instagramLink, #imdbLink {
@@ -1364,11 +1365,7 @@ footer p {
         height: 112px;
         border-top: 5px solid white;
     }
-
-    #actorImgWrapper:hover {
-        -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-    }
-
+    
     #actorImgWrapper:hover > #actorImdbLink > #actorImg {
         transform: scale(1.1);
         -webkit-transform: scale(1.1);
