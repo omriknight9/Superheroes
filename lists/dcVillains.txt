@@ -1,12 +1,12 @@
 
 {
     "characters" : [
-        { "id": 1, "name": "Zod", "characterId": "278",  "image": "villains/dc/zod.jpg", "video": "lpod4qQzO7Q", "actor": "Michael Shannon", "instagram": "null", "imdb": "nm0788335", "actorId": 335},
-        { "id": 2, "name": "Lex Luthor", "characterId": "405",  "image": "villains/dc/lexLuthor.jpg", "video": "vq85FS3lu3U", "actor": "Jesse Eisenberg", "instagram": "null", "imdb": "nm0251986", "actorId": 44735},
-        { "id": 3, "name": "Doomsday", "characterId": "230",  "image": "villains/dc/doomsday.jpg", "video": "PsRTAWDrNYo", "actor": "null", "instagram": "null", "imdb": "null", "actorId": "null"},
-        { "id": 4, "name": "Enchantress", "characterId": "242",  "image": "villains/dc/enchantress.jpg", "video": "MD-2Ty-5C7Q", "actor": "Cara Delevingne", "instagram": "caradelevingne", "imdb": "nm5353321", "actorId": 1289968},
-        { "id": 5, "name": "Steppenwolf", "characterId": "637",  "image": "villains/dc/steppenwolf.jpg", "video": "f2FzrfnfQPY", "actor": "null", "instagram": "null", "imdb": "null", "actorId": "null"},
-        { "id": 6, "name": "Joker", "characterId": "370",  "image": "villains/dc/joker.jpg", "video": "4QYJgxkFajI", "actor": "Joaquin Phoenix", "instagram": "null", "imdb": "nm0001618", "actorId": 73421},
-        { "id": 7, "name": "Dr. Sivana", "characterId": "3000",  "image": "villains/dc/sivana.jpg", "video": "K8P90Ii4i30", "actor": "Mark Strong", "instagram": "mrmarkstrong", "imdb": "nm0835016", "actorId": 2983}
+        { "id": 1, "name": "Zod", "characterId": "278",  "image": "villains/dc/zod.jpg", "actor": "Michael Shannon", "actorId": 335},
+        { "id": 2, "name": "Lex Luthor", "characterId": "405",  "image": "villains/dc/lexLuthor.jpg", "actor": "Jesse Eisenberg", "actorId": 44735},
+        { "id": 3, "name": "Doomsday", "characterId": "230",  "image": "villains/dc/doomsday.jpg", "actor": "null", "actorId": "null"},
+        { "id": 4, "name": "Enchantress", "characterId": "242",  "image": "villains/dc/enchantress.jpg", "actor": "Cara Delevingne", "actorId": 1289968},
+        { "id": 5, "name": "Steppenwolf", "characterId": "637",  "image": "villains/dc/steppenwolf.jpg", "actor": "Ciarán Hinds", "actorId": 8785},
+        { "id": 6, "name": "Joker", "characterId": "370",  "image": "villains/dc/joker.jpg", "actor": "Joaquin Phoenix", "actorId": 73421},
+        { "id": 7, "name": "Dr. Sivana", "characterId": "3000",  "image": "villains/dc/sivana.jpg", "actor": "Mark Strong", "actorId": 2983}
     ]
 }
