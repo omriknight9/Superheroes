@@ -2,13 +2,15 @@
 
 {
     "characters" : [
-        { "id": 1, "name": "Superman", "characterId": "644", "image": "heroes/dc/superman.jpg", "actor": "Henry Cavill", "actorId": 73968},
-        { "id": 2, "name": "Batman", "characterId": "70", "image": "heroes/dc/batman.jpg", "actor": "Ben Affleck", "actorId": 880},
-        { "id": 3, "name": "Flash", "characterId": "265", "image": "heroes/dc/flash.jpg", "actor": "Ezra Miller", "actorId": 132157},
-        { "id": 4, "name": "Wonder Woman", "characterId": "720", "image": "heroes/dc/wonderWoman.jpg", "actor": "Gal Gadot", "actorId": 90633},
-        { "id": 5, "name": "Aquaman", "characterId": "38", "image": "heroes/dc/aquaman.jpg", "actor": "Jason Momoa", "actorId": 117642},
-        { "id": 6, "name": "Cyborg", "characterId": "194", "image": "heroes/dc/cyborg.jpg", "actor": "Ray Fisher", "actorId": 1313559},
-        { "id": 7, "name": "Shazam", "characterId": "156", "image": "heroes/dc/shazam.jpg", "actor": "Zachary Levi", "actorId": 69899},
-        { "id": 8, "name": "Harley Quinn", "characterId": "309", "image": "heroes/dc/harleyQuinn.jpg", "actor": "Margot Robbie", "actorId": 234352}
+        { "id": 1, "name": "Superman", "actor": "Henry Cavill", "actorId": 73968},
+        { "id": 2, "name": "Batman", "actor": "Ben Affleck", "actorId": 880},
+        { "id": 3, "name": "Flash", "actor": "Ezra Miller", "actorId": 132157},
+        { "id": 4, "name": "Wonder Woman", "actor": "Gal Gadot", "actorId": 90633},
+        { "id": 5, "name": "Aquaman", "actor": "Jason Momoa", "actorId": 117642},
+        { "id": 6, "name": "Cyborg", "actor": "Ray Fisher", "actorId": 1313559},
+        { "id": 7, "name": "Harley Quinn", "actor": "Margot Robbie", "actorId": 234352},
+        { "id": 8, "name": "Shazam", "actor": "Zachary Levi", "actorId": 69899},
+        { "id": 9, "name": "Peacemaker", "actor": "John Cena", "actorId": 56446}
+
     ]
 }
