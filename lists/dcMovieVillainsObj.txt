@@ -1,35 +1,30 @@
 {
     "movies" : [
-        {
-        "278": [
-            "Superman II", {"movieValue": 8536}, "Man Of Steel", {"movieValue": 49521}
-        ]},
-        {
-        "405": [
-             "Superman", {"movieValue": 1924}, "Superman II", {"movieValue": 8536}, "Superman IV", {"movieValue": 11411},
-             "Superman Returns", {"movieValue": 1452}, "Batman v Superman: Dawn Of Justice", {"movieValue": 209112},
-             "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "230": [
-             "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}
-        ]},
-        {
-        "242": [
-             "Suicide Squad", {"movieValue": 297761}
-        ]},
-        {
-        "637": [
-             "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "370": [
-             "Batman", {"movieValue": 268}, "The Dark Knight", {"movieValue": 155}, "Suicide Squad", {"movieValue": 297761},
-             "Joker", {"movieValue": 475557}
-        ]},
-        {
-        "3000": [
-             "Shazam", {"movieValue": 287947}
-        ]}
+
+        {"id": 1, "movieList": [
+        {"name": "Superman II", "movieValue": 8536}, {"name": "Man Of Steel", "movieValue": 49521}]},
+
+        {"id": 2, "movieList": [
+        {"name": "Superman", "movieValue": 1924}, {"name": "Superman II", "movieValue": 8536},
+        {"name": "Superman IV", "movieValue": 11411}, {"name": "Superman Returns", "movieValue": 1452},
+        {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 209112}, 
+        {"name": "Justice League", "movieValue": 141052}]},
+
+        {"id": 3, "movieList": [
+        {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 209112}]},
+
+        {"id": 4, "movieList": [
+        {"name": "Suicide Squad", "movieValue": 297761}]},
+
+        {"id": 5, "movieList": [
+        {"name": "Justice League", "movieValue": 141052}]},
+
+        {"id": 6, "movieList": [
+        {"name": "Batman", "movieValue": 268}, {"name": "Suicide Squad", "movieValue": 297761},
+        {"name": "Joker", "movieValue": 475557}]},
+
+        {"id": 7, "movieList": [
+        {"name": "Shazam", "movieValue": 287947}]}
+
     ]
 }
