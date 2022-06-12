@@ -1,17 +1,17 @@
 
-var tID = {
+let tID = {
     snap: null,
     time: null
 };
 
-function barScroll() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
+const barScroll = () => {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
     document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-function capitalize(str) {
+const capitalize = (str) => {
     try {
         if (str.includes(' and ')) {
             str = str.replace(' and ', ' And ');
@@ -23,7 +23,7 @@ function capitalize(str) {
     
         str = str.split(' ');
     
-        for (var i = 0; i < str.length; i++) {
+        for (let i = 0; i < str.length; i++) {
             str[i] = str[i][0].toUpperCase() + str[i].substr(1);
         }
     
@@ -34,7 +34,6 @@ function capitalize(str) {
 }
 
 function scrollBtn() {
-
     if ($(this).scrollTop() > 550) {
         $('#upBtnWrapper').fadeIn();
     }
@@ -43,11 +42,11 @@ function scrollBtn() {
     }
 }
 
-function goToTop() {
+const goToTop = () =>  {
     $('html,body').animate({ scrollTop: 0 }, 800);
 }
 
-function changeMonthName(month) {
+const changeMonthName = (month) =>  {
     switch (month) {
         case 0: {
             monthName = 'Jan';
@@ -100,7 +99,7 @@ function changeMonthName(month) {
     } 
 }
 
-function changeDayName(day) {
+const changeDayName = (day) =>  {
     switch (day) {
         case 1:
         case 21:
@@ -125,7 +124,7 @@ function changeDayName(day) {
     }
 }
 
-function animateScript(e, type) {
+const animateScript = (e, type) =>  {
 
     $('body').css('pointer-events', 'none');
     const audio = e.target.querySelector('audio');
@@ -134,7 +133,7 @@ function animateScript(e, type) {
     audio.currentTime = 0; 
 
     const startPosition = 0;
-    var position = startPosition;
+    let position = startPosition;
 
     const fullImgWidth = 3840;
     const diff = 80;
@@ -154,11 +153,11 @@ function animateScript(e, type) {
 
     }, interval);
 
-    setTimeout(function() {
+    setTimeout(() => {
         villainsOrHeroes(type);
     }, 1500);
 
-    setTimeout(function() {
+    setTimeout(() => {
         if (type == 1) {
             $('#snap').attr('class', '');
             $('#snap').hide();
@@ -174,7 +173,7 @@ function animateScript(e, type) {
     }, 2500);
 }
 
-function animateScript2(e, type) {
+const animateScript2 = (e, type) =>  {
 
     $('body').css('pointer-events', 'none');
     const audio = e.target.querySelector('audio');
@@ -183,7 +182,7 @@ function animateScript2(e, type) {
     audio.currentTime = 0; 
 
     const startPosition = 0;
-    var position = startPosition;
+    let position = startPosition;
 
     const fullImgWidth = 3840;
     const diff = 80;
@@ -203,11 +202,11 @@ function animateScript2(e, type) {
 
     }, interval);
 
-    setTimeout(function() {
+    setTimeout(() => {
         dustHeroes(type);
     }, 1500);
 
-    setTimeout(function() {
+    setTimeout(() => {
         if (type == 1) {
             $('#snap2').attr('class', '');
             $('#snap2').hide();
@@ -223,32 +222,22 @@ function animateScript2(e, type) {
     }, 2500);
 }
 
-function BackColor(elem, color) {
+const BackColor = (elem, color) => {
     $(elem).css('border', color);
 }
 
-function hasClass(elem, className) {
+const hasClass = (elem, className) => {
     return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
 }
 
-function addClass(elem, className) {
+const addClass = (elem, className) => {
     if (!hasClass(elem, className)) {
         elem.className += ' ' + className;
     }
 }
 
-function removeClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-            newClass = newClass.replace(' ' + className + ' ', ' ');
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    }
-}
-
-function toggleClass(elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+const toggleClass = (elem, className) => {
+    let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
     if (hasClass(elem, className)) {
         while (newClass.indexOf(" " + className + " ") >= 0 ) {
             newClass = newClass.replace( " " + className + " " , " " );
