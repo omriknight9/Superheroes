@@ -25,7 +25,7 @@ $(document).ready(() => {
         setTimeout(() => {
             $.each($('.heroWrapper'), function (key, value) {
         
-                let addToFavoritesBtn = $('<img>', {
+                $('<img>', {
                     class: 'addToFavoritesBtn',
                     src: './images/emptyStar.webp',
                     alt: 'star',
@@ -35,7 +35,7 @@ $(document).ready(() => {
                         } else {
                             $(this).attr('src', './images/emptyStar.webp');
                         }
-                        addToFavorites(Number($(this).parent().parent().attr('id').replace('character', '')));
+                        addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')));
                     }
                 }).appendTo($(value).find($('.characterBtnWrapper')));
     
@@ -44,7 +44,7 @@ $(document).ready(() => {
                     $(value).find($('.addToFavoritesBtn')).addClass('addToFavoritesBtnLoggedIn');
                 }
     
-                let cleanVal = $(value).attr('id').replace('character', '');
+                let cleanVal = $(value).find($('.character')).attr('id');
                 if (characters !== undefined && characters.includes(Number(cleanVal))) {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
                     $(starBtn).attr('src', './images/fullStar.webp');
@@ -222,7 +222,7 @@ const logIn = () => {
                     $(value).find($('.addToFavoritesBtn')).addClass('addToFavoritesBtnLoggedIn');
                 }
 
-                let cleanVal = $(value).attr('id').replace('character', '');
+                let cleanVal = $(value).find($('.character')).attr('id');
                 if (characters.includes(Number(cleanVal))) {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
                     $(starBtn).attr('src', './images/fullStar.webp');
@@ -361,7 +361,7 @@ const showFavorites = (type) => {
             $('#time2').click();
             setTimeout(() => {
                 $.each($('.heroWrapper'), (key, value) => {
-                    let cleanVal = $(value).attr('id').replace('character', '');
+                    let cleanVal = $(value).find($('.character')).attr('id');
                     if (characters.includes(Number(cleanVal))) {
                         $('#marvelContainer .infinityGauntlet').hide();
                         $('.addToFavoritesBtn').fadeOut();
@@ -379,7 +379,7 @@ const showFavorites = (type) => {
         } else {
 
             $.each($('.heroWrapper'), (key, value) => {
-                let cleanVal = $(value).attr('id').replace('character', '');
+                let cleanVal = $(value).find($('.character')).attr('id');
                 if (characters.includes(Number(cleanVal))) {
                     $('#marvelContainer .infinityGauntlet').hide();
                     $('.addToFavoritesBtn').fadeOut();
