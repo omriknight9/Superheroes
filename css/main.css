@@ -52,10 +52,10 @@ h2 {
     height: 2rem;
     top: 2rem;
     right: 2rem;
-    transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    -webkit-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
     z-index: 3;
     filter: drop-shadow(0 1px 4px #4caf50);
 }
@@ -232,10 +232,10 @@ button {
     margin: 0 .5rem 0 .5rem;
     filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
     overflow: hidden;
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 button span {
@@ -338,7 +338,7 @@ button span:nth-child(4) {
     width: 80px;
     background: 
     url('../images/snap.webp') 0px 0px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
 
@@ -351,7 +351,7 @@ button span:nth-child(4) {
     width: 80px;
     background: 
     url('../images/time.webp') 0px 0px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
 
@@ -360,7 +360,7 @@ button span:nth-child(4) {
     width: 80px;
     background: 
     url('../images/snap.webp') 0px 0px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
 
@@ -370,7 +370,7 @@ button span:nth-child(4) {
     width: 80px;
     background: 
     url('../images/time.webp') 0px 0px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
 
@@ -458,7 +458,7 @@ button span:nth-child(4) {
 
 #search::placeholder { 
     color: black;
-    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    filter: drop-shadow(0 1px 1px rgba(10, 10, 10, 0.5));
 }
 
 #search:focus {
@@ -472,18 +472,18 @@ button span:nth-child(4) {
     width: 0;
     height: 2px;
     background-color: #ff5a4e;
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #search:focus ~ .focus-border {
     width: 100%;
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
     left: 0;
 }
 
@@ -713,7 +713,8 @@ main {
     position: relative;
     cursor: pointer;
     margin: 4rem 1rem;
-    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)) blur(0);
+    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)) blur(0); */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     transition: all 2s;
     -webkit-transition: all 2s;
     -o-transition: all 2;
@@ -727,10 +728,10 @@ main {
     cursor: pointer;
     overflow: hidden;
     border-radius: 5px;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
     clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
     -ms-clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
     -o-clip-path: polygon(30% 0%, 100% 0, 100% 30%, 100% 95%, 89% 100%, 0 100%, 0% 92%, 0 0);
@@ -750,10 +751,10 @@ main {
     width: 100%;
     height: 5px;
     z-index: 1;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #marvelContainer .villainWrapper .character:after, #nonMcuContainer .villainWrapper .character:after {
@@ -769,10 +770,10 @@ main {
     width: 100%;
     height: 5px;
     z-index: 1;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #dcBtnsWrapper {
@@ -791,10 +792,10 @@ main {
     background-color: black;
     width: 100%;
     height: 7rem;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #marvelContainer .villainWrapper .characterOverlay, #nonMcuContainer .villainWrapper .characterOverlay {
@@ -809,10 +810,10 @@ main {
     position: relative;
     width: 100%;
     height: 250px;  
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 .dustImg {
@@ -844,7 +845,8 @@ main {
 
 .characterBtn {
     width: 35px;
-    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
+    filter: drop-shadow(0 1px 1px rgba(200, 200, 200, 0.8));
+    /* filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8)); */
 }
 
 .characterBtnLoggedIn {
@@ -904,19 +906,33 @@ main {
     font-weight: 600;
 }
 
+#tvShows {
+    display: none;
+}
+
+#tvShows a {
+    text-decoration: wavy;
+    color: #0061bd;
+    cursor: pointer;
+    margin-left: .2rem;
+    margin-right: .2rem;
+    font-weight: 600;
+}
+
 #actorImages {
     display: flex;
     box-sizing: border-box;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
 .actorProfileImg {
     width: 4rem;
     border-radius: 5px;
     margin: .5rem;
-    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)); */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
 }
 
 #instagramLink, #imdbLink {
@@ -931,6 +947,7 @@ main {
 #instagramImg, #imdbImg, #twitterImg {
     width: 35px;
     height: 35px;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
 }
 
 #actorImgWrapper {
@@ -939,20 +956,21 @@ main {
     right: 2rem;
     height: 9.4rem;
     border-radius: 5px;
-    filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5));
+    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)); */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     overflow: hidden;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #actorImg {
     width: 100px;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
     border-radius: 5px;
 }
 
@@ -984,10 +1002,10 @@ main {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: hidden;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 .extraMovie .characterOverlay {
@@ -1003,10 +1021,10 @@ main {
     width: 100%;
     height: 5px;
     z-index: 1;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 .extraMovieDate {
@@ -1042,10 +1060,10 @@ main {
     position: relative;
     width: 100%;
     height: 250px;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 .extraMovieVote {
@@ -1105,10 +1123,10 @@ main {
     height: 250px;
     border-radius: 5px;
     cursor: pointer;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    -moz-transition: .3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
     filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.9));
 }
 
@@ -1215,10 +1233,10 @@ main {
 .socialImg {
     fill: black;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8));
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -o-transition: 0.3s;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
 }
 
 #goToTopBtn {
@@ -1409,10 +1427,10 @@ footer p {
         -moz-transform: scale(1.1);
         -o-transform: scale(1.1);
         -ms-transform: scale(1.1);
-        transition: .3s;
-        -webkit-transition: .3s;
-        -o-transition: .3s;
-        -moz-transition: .3s;
+        transition: .2s;
+        -webkit-transition: .2s;
+        -moz-transition: .2s;
+        -o-transition: .2s;
         transform-origin: 50% 50%;
     }
 
@@ -1422,10 +1440,10 @@ footer p {
         -moz-transform: scale(1.1);
         -o-transform: scale(1.1);
         -ms-transform: scale(1.1);
-        transition: .3s;
-        -webkit-transition: .3s;
-        -o-transition: .3s;
-        -moz-transition: .3s;
+        transition: .2s;
+        -webkit-transition: .2s;
+        -moz-transition: .2s;
+        -o-transition: .2s;
         transform-origin: 50% 50%;
     }
 
@@ -1439,6 +1457,10 @@ footer p {
     }
 
     #movies a:hover {
+        color: #4caf50;
+    }
+
+    #tvShows a:hover {
         color: #4caf50;
     }
 
