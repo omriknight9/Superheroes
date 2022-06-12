@@ -1,14 +1,14 @@
 
 {
     "characters" : [
-        { "id": 1, "name": "Magneto", "characterId": "423",  "image": "villains/marvel/magneto.jpg", "actor": "Ian McKellen", "actorId": 1327},
-        { "id": 2, "name": "Sabretooth", "characterId": "570",  "image": "villains/marvel/sabretooth.jpg", "actor": "Liev Schreiber", "actorId": 23626},
-        { "id": 3, "name": "Toad", "characterId": "670",  "image": "villains/marvel/toad.jpg", "actor": "Ray Park", "actorId": 11007},
-        { "id": 4, "name": "Juggernaut", "characterId": "374",  "image": "villains/marvel/juggernaut.jpg", "actor": "Vinnie Jones", "actorId": 980},
-        { "id": 5, "name": "Sebastian Shaw", "characterId": "582",  "image": "villains/marvel/sebastianShaw.jpg", "actor": "Kevin Bacon", "actorId": 4724},
-        { "id": 6, "name": "Apocalypse", "characterId": "35",  "image": "villains/marvel/apocalypse.jpg", "actor": "Oscar Isaac", "actorId": 25072},
-        { "id": 7, "name": "Dr. Doom", "characterId": "222",  "image": "villains/marvel/drDoom.jpg", "actor": "Julian McMahon", "actorId": 20402},
-        { "id": 8, "name": "Ajax", "characterId": "13",  "image": "villains/marvel/ajax.jpg", "actor": "Ed Skrein", "actorId": 1047649},
-        { "id": 9, "name": "Cable", "characterId": "145",  "image": "villains/marvel/cable.jpg", "actor": "Josh Brolin", "actorId": 16851}
+        { "id": 1, "name": "Magneto", "actor": "Ian McKellen", "actorId": 1327},
+        { "id": 2, "name": "Sabretooth", "actor": "Liev Schreiber", "actorId": 23626},
+        { "id": 3, "name": "Toad", "actor": "Ray Park", "actorId": 11007},
+        { "id": 4, "name": "Juggernaut", "actor": "Vinnie Jones", "actorId": 980},
+        { "id": 5, "name": "Sebastian Shaw", "actor": "Kevin Bacon", "actorId": 4724},
+        { "id": 6, "name": "Apocalypse", "actor": "Oscar Isaac", "actorId": 25072},
+        { "id": 7, "name": "Dr. Doom", "actor": "Julian McMahon", "actorId": 20402},
+        { "id": 8, "name": "Ajax", "actor": "Ed Skrein", "actorId": 1047649},
+        { "id": 9, "name": "Cable", "actor": "Josh Brolin", "actorId": 16851}
     ]
 }
