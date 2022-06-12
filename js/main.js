@@ -1,16 +1,7 @@
 
-const searchUrl = 'https://superheroapi.com/api.php/';
-const accessToken = 10222400164056556;
-
 const tmdbKey = '0271448f9ff674b76c353775fa9e6a82';
 const movieActorsUrl = "https://api.themoviedb.org/3/person/";
 
-let marvelHeroesArr = [];
-let marvelVillainsArr = [];
-let nonMcuHeroesArr = [];
-let nonMcuVillainsArr = [];
-let dcHeroesArr = [];
-let dcVillainsArr = [];
 let mcuTimelineArr = [];
 let dcTimelineArr = [];
 
@@ -26,18 +17,12 @@ let mcuTimelineShown = false;
 let dcTimelineShown = false;
 
 let movieList;
-
 let searchVal;
 let heroes = 1;
-
 var time = 2;
 
 let monthName;
 let dayName;
-
-let token;
-
-let gauntletType;
 
 $(document).ready(() => {
 
@@ -259,47 +244,58 @@ const goHome = (type) => {
 const loadJson = () => {
 
     $.get('./lists/marvelMovieObj.txt', (data) => {
-        marvelMovieObj = JSON.parse(data);
-        marvelMovieObj = marvelMovieObj.movies;
+        marvelMovieObj = JSON.parse(data).movies;
     });
 
     $.get('./lists/dcMovieObj.txt', (data) => {
-        dcMovieObj = JSON.parse(data);
-        dcMovieObj = dcMovieObj.movies;
+        dcMovieObj = JSON.parse(data).movies;
     });
 
     $.get('./lists/nonMcuMovieObj.txt', (data) => {
-        nonMcuMovieObj = JSON.parse(data);
-        nonMcuMovieObj = nonMcuMovieObj.movies;
+        nonMcuMovieObj = JSON.parse(data).movies;
     });
 
     $.get('./lists/marvelHeroes.txt', (data) => {
-        marvelHeroesArr.push(JSON.parse(data));
         setTimeout(() => {
-            buildCharacters($('#marvelContainer'), marvelHeroesArr, 1);
+            buildCharacters(1, $('#marvelContainer'), JSON.parse(data), 1);
         }, 500);
     });
 
     $.get('./lists/dcHeroes.txt', (data) => {
-        dcHeroesArr.push(JSON.parse(data));
         setTimeout(() => {
-            buildCharacters($('#dcContainer'), dcHeroesArr, 1);
+            buildCharacters(2, $('#dcContainer'), JSON.parse(data), 1);
         }, 500);
     });
 
     $.get('./lists/nonMcuHeroes.txt', (data) => {
-        nonMcuHeroesArr.push(JSON.parse(data));
         setTimeout(() => {
-            buildCharacters($('#nonMcuContainer'), nonMcuHeroesArr, 1);
+            buildCharacters(1, $('#nonMcuContainer'), JSON.parse(data), 1);
         }, 500);
     });
 }
 
-const buildCharacters = (wrapper, arr, num) => {
-    let characters;
+const buildCharacters = (type, wrapper, arr, num) => {
 
-    characters = arr[0].characters;
+    let imgPath;
 
+    switch (type) {
+        case 1:
+            imgPath = 'heroes/marvel';
+            break;
+        case 2:
+            imgPath = 'heroes/dc';
+            break;
+        case 3:
+            imgPath = 'villains/marvel';
+            break;
+        case 4:
+            imgPath = 'villains/dc';
+            break;
+        default:
+            break;
+    }
+
+    let characters = arr.characters;
     let charactersClass;
     
     if (num == 1) {
@@ -340,31 +336,20 @@ const buildCharacters = (wrapper, arr, num) => {
 
         let character = $('<div>', {
             class: 'character',
+            id: characters[i].id,
             name: characters[i].name,
-            characterId: characters[i].characterId,
-            characterNum: characters[i].id,
             actor: characters[i].actor,
             actorId: characters[i].actorId,
             click: function() {
-                if ($(this).attr('actorId') == 'null') {
-                    $('#actorImg').attr('src', $(this).find($('.characterImg')).attr('src'));
-                    $('#actorImdbLink').attr({'href': 'javascript:void(0)', 'target': ''});
-                    $('#actorImdbLink').css('cursor', 'auto');
-                    $('#moreMoviesBtn').hide();
-                    $('#moreMoviesContent').empty();
-                    hideMoreMovies();
-                } else {
-                    $('#moreMoviesBtn').show();
-                    $('#actorImdbLink').attr('target', '_blank');
-                    $('#actorImdbLink').css('cursor', 'pointer');
-                    getActorDetails($(this).attr('actorId'));
-                }
-                
-                characterClicked($(this).attr('name'), $(this).find($('.characterImg')), $(this).attr('characterId'), characters[i].actor, $(this).attr('instagram'), $(this).attr('imdb'));
+                $('#moreMoviesBtn').show();
+                $('#actorImdbLink').attr('target', '_blank');
+                $('#actorImdbLink').css('cursor', 'pointer');
+                getActorDetails($(this).attr('actorId'));
+                characterClicked($(this).attr('name'), $(this).find($('.characterImg')), $(this).attr('id'), characters[i].actor);
             }
         }).appendTo(characterWrapper);
 
-        var finalActorName;
+        let finalActorName;
 
         if (characters[i].actor == 'null') {
             finalActorName = '';
@@ -372,10 +357,14 @@ const buildCharacters = (wrapper, arr, num) => {
             finalActorName = characters[i].actor;
         }
 
+        let trimmed = characters[i].name.replace(/[ .-]/g,'');
+        let restOfStr = trimmed.slice(1);
+        let finalSrc = imgPath + '/' + trimmed.charAt(0).toLowerCase() + restOfStr + '.jpg';
+
         $('<img>', {
             class: 'characterImg lazy',
             alt: 'characterImg',
-            'data-src': './images/' + characters[i].image,
+            'data-src': './images/' + finalSrc,
             'src': './images/stock.jpg'
         }).appendTo(character);
 
@@ -410,6 +399,7 @@ const getActorDetails = (actorId) => {
         var actorImgPath = 'https://image.tmdb.org/t/p/w500' + data.profile_path;
 
         $('#actorImg').attr('src', actorImgPath);
+        $('#actorImg').attr('filePath', data.profile_path);
         $('#actorImg').show();
 
         if (data.external_ids.instagram_id == null || data.external_ids.instagram_id == '') {
@@ -450,23 +440,23 @@ const buildImages = (images) => {
         finalLength = images.length
     }
 
-    for (let i = 0; i < finalLength; i++) {  
-        $('<img>', {
-            class: 'actorProfileImg',
-            src: 'https://image.tmdb.org/t/p/w500' + images[i].file_path,
-            alt: 'actorProfileImg'
-        }).appendTo($('#actorImages'))   
+    for (let i = 0; i < finalLength; i++) {
+        if (images[i].file_path !== $('#actorImg').attr('filePath')) {
+            $('<img>', {
+                class: 'actorProfileImg',
+                src: 'https://image.tmdb.org/t/p/w500' + images[i].file_path,
+                alt: 'actorProfileImg'
+            }).appendTo($('#actorImages'))
+        }
     }
 }
 
 const buildCredits = (credits) => {
     let moviesArr = credits;
 
-    for (let i = 0; i < moviesArr.length; i++) {  
+    for (let i = 0; i < moviesArr.length; i++) {
         if (moviesArr[i].poster_path !== null && moviesArr[i].character !== '' && moviesArr[i].character !== undefined &&
-            moviesArr[i].release_date !== undefined && moviesArr[i].release_date !== '' && moviesArr[i].genre_ids[0] !== 99 &&
-            moviesArr[i].genre_ids[1] !== 99 && moviesArr[i].genre_ids[0] !== 10770 && moviesArr[i].genre_ids[1] !== 10770) {
-
+            moviesArr[i].release_date !== undefined && moviesArr[i].release_date !== '') {
             moviesArr[i].title = moviesArr[i].title.replace('  ', ' ');
 
             if(moviesArr[i].character !== null) {
@@ -478,14 +468,14 @@ const buildCredits = (credits) => {
             let finalMovieTitle;
             let finalCharacterTitle;
 
-            if (moviesArr[i].title.length > 40) {
-                finalMovieTitle = capitalize(moviesArr[i].title.substring(0, 40) + '...');
+            if (moviesArr[i].title.length > 35) {
+                finalMovieTitle = capitalize(moviesArr[i].title.substring(0, 35) + '...');
             } else {
                 finalMovieTitle = capitalize(moviesArr[i].title);
             }
             
-            if (moviesArr[i].character.length > 40) {
-                finalCharacterTitle = capitalize(moviesArr[i].character.substring(0, 40) + '...');
+            if (moviesArr[i].character.length > 35) {
+                finalCharacterTitle = capitalize(moviesArr[i].character.substring(0, 35) + '...');
             } else {
                 finalCharacterTitle = capitalize(moviesArr[i].character);
             }
@@ -644,6 +634,8 @@ const sortMovies = (container, elem1) => {
 }
 
 const characterClicked = (name, that, characterId, actorName) => {
+    $('.siteLink').remove();
+    $('#tvShows').hide();
     $('#marvelContainer, #dcContainer, #nonMcuContainer').show();
     $('#lineMarvel, #lineDc, #lineNonMcu').parent().show();
     searchVal = '';
@@ -659,45 +651,77 @@ const characterClicked = (name, that, characterId, actorName) => {
         $('#snap2').attr('class', 'infinityGauntlet');
     }
 
-    let characterNum = that.parent().attr('characterNum');
-
     movieList = undefined;
 
     if (that.parent().parent().parent().attr('id') == 'marvelContainer') {
         if (that.parent().parent().hasClass('villainWrapper')) {
-            movieList = marvelMovieVillainsObj[characterNum-1][characterId];
+            movieList = marvelMovieVillainsObj;
         } else {
-            movieList = marvelMovieObj[characterNum - 1][characterId];
+            movieList = marvelMovieObj;
         }
     } else if(that.parent().parent().parent().attr('id') == 'dcContainer') {
         if (that.parent().parent().hasClass('villainWrapper')) {
-            movieList = dcMovieVillainsObj[characterNum-1][characterId];
+            movieList = dcMovieVillainsObj;
         } else {
-            movieList = dcMovieObj[characterNum - 1][characterId];
+            movieList = dcMovieObj;
         }
     } else if(that.parent().parent().parent().attr('id') == 'nonMcuContainer') {
         if (that.parent().parent().hasClass('villainWrapper')) {
-            movieList = nonMcuMovieVillainsObj[characterNum-1][characterId];
+            movieList = nonMcuMovieVillainsObj;
         } else {
-            movieList = nonMcuMovieObj[characterNum - 1][characterId];
+            movieList = nonMcuMovieObj;
         }
     }
 
-    $('#movies').html('Movies Appeared:');
+    for (let w = 0; w < movieList.length; w++) {
+        if (movieList[w].id == characterId) {
+            movieList = movieList[w].movieList;
+        } 
+    }
+
+    for (let j = 0; j < movieList.length; j++) {
+        if (movieList[j].tvShowValue !== undefined) {
+            $('#tvShows').show();
+            break;
+        }
+    }
+
+    for (let a = 0; a < movieList.length; a++) {
+        if ('movieValue' in movieList[a]) {
+            $('#movies').show();
+            break;
+        } else {
+            $('#movies').hide(); 
+        }
+    }
 
     for (let i = 0; i < movieList.length; i++) {
-        if (i % 2 == 0) {
-            $('<a>', {
-                text: movieList[i].trim() + ', ',
-                target: '_blank',
-                rel: 'noopener',
-                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + movieList[i].trim() + '&value=' + movieList[i + 1].movieValue
-            }).appendTo($('#movies'));
+        let link;
+        let containerToAppend;
+        if (movieList[i].movieValue) {
+            link = 'https://omriknight9.github.io/my-movie-list/?movie=' + movieList[i].name + '&value=' + movieList[i].movieValue;
+            containerToAppend = $('#movies');
+        } else if (movieList[i].tvShowValue) {
+            link = 'https://omriknight9.github.io/my-movie-list/?tvShow=' + movieList[i].name + '&value=' + movieList[i].tvShowValue
+            containerToAppend = $('#tvShows');
         }
+
+        $('<a>', {
+            text: movieList[i].name + ', ',
+            class: 'siteLink',
+            target: '_blank',
+            rel: 'noopener',
+            href: link
+        }).appendTo(containerToAppend);
     }
 
     setTimeout(() => {
-        $('#movies a').last().html($('#movies a').last().html().replace(',', ''));
+        if ($('#movies').is(':visible')) {
+            $('#movies a').last().html($('#movies a').last().html().replace(',', ''));
+        }
+        if ($('#tvShows').is(':visible')) {
+            $('#tvShows a').last().html($('#tvShows a').last().html().replace(',', ''));
+        }
     }, 1000);
 
     $('.progress-container').hide();
@@ -719,83 +743,14 @@ const characterClicked = (name, that, characterId, actorName) => {
     $('.progress-container').show();
     $('#moreMoviesContent, #actorImages').empty();
     hideMoreMovies();
-
-    if (characterId < 2000) {
-        getCharacterInfo(characterId, actorName);
-    } else {
-        showContent(name, actorName);
-    }
+    getCharacterInfo(name, actorName);
 }
 
-const showContent = (name, actorName) => {
-    $('#fullName, #work, #firstAppearance, #publisher, #actorImg').hide();
-    $('#characterName').html('Name: ' + name);
-    $('#characterName, #superheroContent').show();
-
-    if (actorName == null || actorName == 'undefined') {
-        $('#actorName').html('');
-        $('#actorName').hide();
-    } else {
-        $('#actorName').html('Played By: ' + actorName);
-        $('#actorName').show();
-    }
-
+const getCharacterInfo = (name, actorName) => {
+    $('#fullName').html('Full Name: ' + name);
+    $('#actorName').html('Played By: ' + actorName);
+    $('#superheroContent').show();
     document.querySelector('#superheroContent').scrollIntoView({ behavior: 'smooth' });
-}
-
-const getCharacterInfo = (searchVal, actorName) => {
-    $.get(searchUrl + accessToken + '/' + searchVal, (data) => {
-        $('#fullName').show();
-
-        if (actorName == 'null') {
-            $('#actorName').html('');
-            $('#actorName').hide();
-        } else {
-            $('#actorName').html('Played By: ' + actorName);
-            $('#actorName').show();
-        }
-
-        if (data.biography['full-name'] !== data.name) {
-            if (data.biography['full-name'] == '') {
-                $('#fullName').hide();
-            } else {
-                $('#fullName').html('Full Name: ' + data.biography['full-name']);
-                $('#fullName').show();
-            }
-            $('#characterName').html('Name: ' + data.name);
-            $('#characterName').show();
-        } else {
-            $('#characterName').hide();
-            $('#fullName').html('Name: ' + data.name);
-        }
-
-        if (data.biography['first-appearance'] !== null && data.biography['first-appearance'] !== undefined && data.biography['first-appearance'] !== '-') {
-            $('#firstAppearance').html('First Appearance: ' + data.biography['first-appearance']);
-            $('#firstAppearance').show();
-        } else {
-            $('#firstAppearance').html('');
-            $('#firstAppearance').hide();
-        }
-
-        if (data.biography['publisher'] !== null && data.biography['publisher'] !== undefined && data.biography['publisher'] !== '-') {
-            $('#publisher').html('Publisher: ' + data.biography['publisher']);
-            $('#publisher').show();
-        } else {
-            $('#firstAppearance').html('');
-            $('#firstAppearance').hide();
-        }
-
-        if (data.work['occupation'] !== null && data.work['occupation'] !== undefined && data.work['occupation'] !== '-') {
-            $('#work').html('Occupation: ' + data.work['occupation']);
-            $('#work').show();
-        } else {
-            $('#work').html('');
-            $('#work').hide();
-        }
-
-        $('#superheroContent').show();
-        document.querySelector('#superheroContent').scrollIntoView({ behavior: 'smooth' });
-    });
 }
 
 const goToTimeline = (type) => {
@@ -964,39 +919,33 @@ const villainsOrHeroes = (type) => {
 		
 		if (!villainsShown) {
 			$.get('./lists/marvelVillains.txt', (data) => {
-				marvelVillainsArr.push(JSON.parse(data));
 				setTimeout(() => {
-					buildCharacters($('#marvelContainer'), marvelVillainsArr, 2);
+					buildCharacters(3, $('#marvelContainer'), JSON.parse(data), 2);
 				}, 500);
 			});
 		
             $.get('./lists/marvelMovieVillainsObj.txt', (data) => {
-				marvelMovieVillainsObj = JSON.parse(data);
-				marvelMovieVillainsObj = marvelMovieVillainsObj.movies;
+                marvelMovieVillainsObj = JSON.parse(data).movies;
 			});
 
 			$.get('./lists/dcVillains.txt', (data) => {
-				dcVillainsArr.push(JSON.parse(data));
 				setTimeout(() => {
-					buildCharacters($('#dcContainer'), dcVillainsArr, 2);
+					buildCharacters(4, $('#dcContainer'), JSON.parse(data), 2);
 				}, 500);
 			});
 		
 			$.get('./lists/dcMovieVillainsObj.txt', (data) => {
-				dcMovieVillainsObj = JSON.parse(data);
-				dcMovieVillainsObj = dcMovieVillainsObj.movies;
+                dcMovieVillainsObj = JSON.parse(data).movies;
 			});
 
             $.get('./lists/nonMcuVillains.txt', (data) => {
-				nonMcuVillainsArr.push(JSON.parse(data));
 				setTimeout(() => {
-					buildCharacters($('#nonMcuContainer'), nonMcuVillainsArr, 2);
+					buildCharacters(3, $('#nonMcuContainer'), JSON.parse(data), 2);
 				}, 500);
 			});
 		
 			$.get('./lists/nonMcuMovieVillainsObj.txt', (data) => {
-				nonMcuMovieVillainsObj = JSON.parse(data);
-				nonMcuMovieVillainsObj = nonMcuMovieVillainsObj.movies;
+                nonMcuMovieVillainsObj = JSON.parse(data).movies;
 			});
 
 			villainsShown = true;
