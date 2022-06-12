@@ -1,44 +1,36 @@
 {
     "movies" : [
-        {
-        "423": [
-            "X-Men", {"movieValue": 36657}, "X2", {"movieValue": 36658}, "X-Men: The Last Stand", {"movieValue": 36668},
-            "X-Men: First Class", {"movieValue": 49538}, "The Wolverine", {"movieValue": 76170},
-            "X-Men: Days Of Future Past", {"movieValue": 127585}, "X-Men: Apocalypse", {"movieValue": 246655},
-            "X-Men: Dark Phoenix", {"movieValue": 320288}
-        ]},
-        {
-        "570": [
-            "X-Men", {"movieValue": 36657}, "X-Men Origins: Wolverine", {"movieValue": 2080}
-        ]},
-        {
-        "670": [
-            "X-Men", {"movieValue": 36657}, "X2", {"movieValue": 36658}, "X-Men: Days Of Future Past", {"movieValue": 127585}
-        ]},
-        {
-        "374": [
-            "X-Men: The Last Stand", {"movieValue": 36668}, "Deadpool 2", {"movieValue": 383498}
-        ]},
-        {
-        "582": [
-            "X-Men: First Class", {"movieValue": 49538}
-        ]},
-        {
-        "35": [
-            "X-Men: Apocalypse", {"movieValue": 246655}
-        ]},
-        {
-        "222": [
-             "Fantastic Four", {"movieValue": 9738}, "Fantastic Four: Rise Of The Silver Surfer", {"movieValue": 1979},
-             "Fantastic Four", {"movieValue": 166424}
-        ]},
-        {
-        "13": [
-             "Deadpool", {"movieValue": 293660}
-        ]},
-        {
-        "145": [
-             "Deadpool 2", {"movieValue": 383498}
-        ]}
+
+        {"id": 1, "movieList": [
+        {"name": "X-Men", "movieValue": 36657}, {"name": "X2", "movieValue": 36658},
+        {"name": "X-Men: The Last Stand", "movieValue": 36668}, {"name": "X-Men: First Class", "movieValue": 49538},
+        {"name": "The Wolverine", "movieValue": 76170}, {"name": "X-Men: Days Of Future Past", "movieValue": 127585},
+        {"name": "X-Men: Apocalypse", "movieValue": 246655}, {"name": "X-Men: Dark Phoenix", "movieValue": 320288}]},
+
+        {"id": 2, "movieList": [
+        {"name": "X-Men", "movieValue": 36657}, {"name": "X-Men Origins: Wolverine", "movieValue": 2080}]},
+
+        {"id": 3, "movieList": [
+        {"name": "X-Men", "movieValue": 36657}, {"name": "X2", "movieValue": 36658},
+        {"name": "X-Men: Days Of Future Past", "movieValue": 127585}]},
+
+        {"id": 4, "movieList": [
+        {"name": "X-Men: The Last Stand", "movieValue": 36668}, {"name": "Deadpool 2", "movieValue": 383498}]},
+
+        {"id": 5, "movieList": [
+        {"name": "X-Men: First Class", "movieValue": 49538}]},
+
+        {"id": 6, "movieList": [
+        {"name": "X-Men: Apocalypse", "movieValue": 246655}]},
+
+        {"id": 7, "movieList": [
+        {"name": "Fantastic Four", "movieValue": 9738}, {"name": "Fantastic Four: Rise Of The Silver Surfer", "movieValue": 1979},
+        {"name": "Fantastic Four", "movieValue": 166424}]},
+
+        {"id": 8, "movieList": [
+        {"name": "Deadpool", "movieValue": 293660}]},
+
+        {"id": 9, "movieList": [
+        {"name": "Deadpool 2", "movieValue": 383498}]}
     ]
 }
