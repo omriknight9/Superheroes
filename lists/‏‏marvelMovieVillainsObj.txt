@@ -1,84 +1,65 @@
 {
     "movies" : [
-        {
-        "347": [
-            "Iron Man", {"movieValue": 1726}
-        ]},
-        {
-        "4": [
-            "The Incredible Hulk", {"movieValue": 1724}
-        ]},
-        {
-        "2000": [
-             "Iron Man 2", {"movieValue": 10138}
-        ]},
-        {
-        "414": [
-            "Thor", {"movieValue": 10195}, "The Avengers", {"movieValue": 24428}, "Thor: The Dark World", {"movieValue": 76338},
-            "Avengers: Age Of Ultron", {"movieValue": 99861}, "Thor: Ragnarok", {"movieValue": 284053}, "Avengers: Infinity War", {"movieValue": 299536},
-            "Avengers: Endgame", {"movieValue": 299534}
-        ]},
-        {
-        "550": [
-            "Captain America: The First Avenger", {"movieValue": 1771}, "Avengers: Endgame", {"movieValue": 299534}
-        ]},
-        {
-        "2001": [
-            "Iron Man 3", {"movieValue": 68721}
-        ]},
-        {
-        "2002": [
-            "Thor: The Dark World", {"movieValue": 76338}
-        ]},
-        {
-        "2003": [
-            "Captain America: The Winter Soldier", {"movieValue": 100402}, "Captain America: Civil War", {"movieValue": 271110},
-            "Avengers: Endgame", {"movieValue": 299534}
-        ]},
-        {
-        "2004": [
-            "Guardians Of The Galaxy", {"movieValue": 118340}, "Captain Marvel", {"movieValue": 299537}
-        ]},
-        {
-        "680": [
-            "Avengers: Age Of Ultron", {"movieValue": 99861}
-        ]},
-        {
-        "726": [
-            "Ant-Man", {"movieValue": 102899}
-        ]},
-        {
-        "2005": [
-            "Captain America: Civil War", {"movieValue": 271110}
-        ]},
-        {
-        "232": [
-            "Doctor Strange", {"movieValue": 284052}
-        ]},
-        {
-        "235": [
-             "Guardians Of The Galaxy 2", {"movieValue": 283995}
-        ]},
-        {
-        "701": [
-             "Spiderman: Homecoming", {"movieValue": 315635}
-        ]},
-        {
-        "321": [
-             "Thor: Ragnarok", {"movieValue": 284053}
-        ]},
-        {
-        "2006": [
-             "Black Panther", {"movieValue": 284054}
-        ]},
-        {
-        "655": [
-             "Avengers: Infinity War", {"movieValue": 299536},
-             "Avengers: Endgame", {"movieValue": 299534}
-        ]},
-        {
-        "479": [
-              "Spider-Man: Far From Home", {"movieValue": 429617}
-        ]}
+
+        {"id": 1, "movieList": [
+        {"name": "Iron Man", "movieValue": 1726}]},
+
+        {"id": 2, "movieList": [
+        {"name": "The Incredible Hulk", "movieValue": 1724}]},
+
+        {"id": 3, "movieList": [
+        {"name": "Iron Man 2", "movieValue": 10138}]},
+
+        {"id": 4, "movieList": [
+        {"name": "Thor", "movieValue": 10195}, {"name": "The Avengers", "movieValue": 24428},
+        {"name": "Thor: The Dark World", "movieValue": 76338}, {"name": "Avengers: Age Of Ultron", "movieValue": 99861}, 
+        {"name": "Thor: Ragnarok", "movieValue": 284053}, {"name": "Avengers: Infinity War", "movieValue": 299536},
+        {"name": "Avengers: Endgame", "movieValue": 299534}]},
+
+        {"id": 5, "movieList": [
+        {"name": "Captain America: The First Avenger", "movieValue": 1771}, {"name": "Avengers: Endgame", "movieValue": 299534}]},
+
+        {"id": 6, "movieList": [
+        {"name": "Iron Man 3", "movieValue": 68721}]},
+
+        {"id": 7, "movieList": [
+        {"name": "Thor: The Dark World", "movieValue": 76338}]},
+
+        {"id": 8, "movieList": [
+        {"name": "Captain America: The Winter Soldier", "movieValue": 100402}, {"name": "Captain America: Civil War", "movieValue": 271110},
+        {"name": "Avengers: Endgame", "movieValue": 299534}]},
+
+        {"id": 9, "movieList": [
+        {"name": "Guardians Of The Galaxy", "movieValue": 118340}, {"name": "Captain Marvel", "movieValue": 299537}]},
+
+        {"id": 10, "movieList": [
+        {"name": "Avengers: Age Of Ultron", "movieValue": 99861}]},
+
+        {"id": 11, "movieList": [
+        {"name": "Ant-Man", "movieValue": 102899}]},
+
+        {"id": 12, "movieList": [
+        {"name": "Captain America: Civil War", "movieValue": 271110}]},
+
+        {"id": 13, "movieList": [
+        {"name": "Doctor Strange", "movieValue": 284052}]},
+
+        {"id": 14, "movieList": [
+        {"name": "Guardians Of The Galaxy 2", "movieValue": 283995}]},
+
+        {"id": 15, "movieList": [
+        {"name": "Spiderman: Homecoming", "movieValue": 315635}]},
+
+        {"id": 16, "movieList": [
+        {"name": "Thor: Ragnarok", "movieValue": 284053}]},
+
+        {"id": 17, "movieList": [
+        {"name": "Black Panther", "movieValue": 284054}]},
+
+        {"id": 18, "movieList": [
+        {"name": "Avengers: Infinity War", "movieValue": 299536}, {"name": "Avengers: Endgame", "movieValue": 299534}]},
+
+        {"id": 19, "movieList": [
+        {"name": "Spider-Man: Far From Home", "movieValue": 429617}]}
     ]
 }
