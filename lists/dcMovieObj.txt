@@ -1,43 +1,45 @@
 
 {
     "movies" : [
-        {
-        "644": [
-            "Superman", {"movieValue": 1924}, "Superman II", {"movieValue": 8536}, "Superman III", {"movieValue": 9531},
-            "Superman IV", {"movieValue": 11411}, "Superman Returns", {"movieValue": 1452}, "Man Of Steel", {"movieValue": 49521},
-            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "70": [
-            "Batman", {"movieValue": 268}, "Batman Returns", {"movieValue": 364}, "Batman Forever", {"movieValue": 414},
-            "Batman & Robin", {"movieValue": 415}, "Batman Begins", {"movieValue": 272}, "The Dark Knight", {"movieValue": 155},
-            "The Dark Knight Rises", {"movieValue": 49026}, "Batman v Superman: Dawn Of Justice", {"movieValue": 209112},
-            "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "265": [
-            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "720": [
-            "Batman v Superman: Dawn Of Justice", {"movieValue": 209112}, "Wonder Woman", {"movieValue": 297762},
-            "Justice League", {"movieValue": 141052}, "Wonder Woman 1984", {"movieValue": 464052}
-        ]},
-        {
-        "38": [
-            "Justice League", {"movieValue": 141052}, "Aquaman", {"movieValue": 297802}
-        ]},
-        {
-        "194": [
-            "Justice League", {"movieValue": 141052}
-        ]},
-        {
-        "156": [
-            "Shazam", {"movieValue": 287947}
-        ]},
-        {
-        "309": [
-            "Suicide Squad", {"movieValue": 297761}, "Birds Of Pray", {"movieValue": 495764}
-        ]}
+        {"id": 1, "movieList": [
+        {"name": "Superman", "movieValue": 1924}, {"name": "Superman II", "movieValue": 8536},
+        {"name": "Superman III", "movieValue": 9531}, {"name": "Superman IV", "movieValue": 11411},
+        {"name": "Superman Returns", "movieValue": 1452}, {"name": "Man Of Steel", "movieValue": 49521},
+        {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 20911}, {"name": "Justice League", "movieValue": 141052},
+        {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 2, "movieList": [
+        {"name": "Batman", "movieValue": 268}, {"name": "Batman Returns", "movieValue": 364},
+        {"name": "Batman Forever", "movieValue": 414}, {"name": "Batman & Robin", "movieValue": 415},
+        {"name": "Batman Begins", "movieValue": 272}, {"name": "The Dark Knight", "movieValue": 155},
+        {"name": "The Dark Knight Rises", "movieValue": 49026}, {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 20911},
+        {"name": "Justice League", "movieValue": 141052}, {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 3, "movieList": [
+        {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 20911}, {"name": "Justice League", "movieValue": 141052},
+        {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 4, "movieList": [
+        {"name": "Batman v Superman: Dawn Of Justice", "movieValue": 20911}, {"name": "Wonder Woman", "movieValue": 297762},
+        {"name": "Justice League", "movieValue": 141052}, {"name": "Wonder Woman 1984", "movieValue": 464052},
+        {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 5, "movieList": [
+        {"name": "Justice League", "movieValue": 141052}, {"name": "Aquaman", "movieValue": 297802},
+        {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 6, "movieList": [
+        {"name": "Justice League", "movieValue": 141052}, {"name": "Zack Snyder's Justice League", "movieValue": 791373}]},
+
+        {"id": 7, "movieList": [
+        {"name": "Suicide Squad", "movieValue": 297761}, {"name": "Birds Of Pray", "movieValue": 495764}]},
+
+        {"id": 8, "movieList": [
+        {"name": "Shazam", "movieValue": 28794}]},
+
+        {"id": 9, "movieList": [
+        {"name": "Peacemaker", "tvShowValue": 110492}]}
+
+
     ]
 }
