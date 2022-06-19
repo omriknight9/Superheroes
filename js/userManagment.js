@@ -1,8 +1,6 @@
 
 const back4appAppId = 'gtdHhx99C3WkxE5EWFi8NN3M8u3MBVXc0sQk5y7C';
 const back4appJsKey = 'EQrq2RH5VZ8FBRuq2t21OSkuSYiTXTXWVpuYyZot';
-// let chosenCharacterArr = [];
-// let chosenCharacterArr2 = [];
 let characterObj = [];
 let currentUser;
 
