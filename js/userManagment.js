@@ -1,7 +1,9 @@
 
 const back4appAppId = 'gtdHhx99C3WkxE5EWFi8NN3M8u3MBVXc0sQk5y7C';
 const back4appJsKey = 'EQrq2RH5VZ8FBRuq2t21OSkuSYiTXTXWVpuYyZot';
-let chosenCharacterArr = [];
+// let chosenCharacterArr = [];
+// let chosenCharacterArr2 = [];
+let characterObj = [];
 let currentUser;
 
 let userLoggedIn = false;
@@ -14,17 +16,16 @@ $(document).ready(() => {
     if (Parse.User.current() !== null) {
         currentUser = Parse.User.current();
         userLoggedIn = true;
-        let characters = currentUser.get("characters");
-        if (characters == undefined) {
-            characters = [];
+        characterObj = currentUser.get("characterObj");
+
+        if (characterObj == undefined) {
+            characterObj = [];
         }
-        chosenCharacterArr = characters;
 
         $('#header').hide();
 
         setTimeout(() => {
             $.each($('.heroWrapper'), function (key, value) {
-        
                 $('<img>', {
                     class: 'addToFavoritesBtn',
                     src: './images/emptyStar.webp',
@@ -35,7 +36,8 @@ $(document).ready(() => {
                         } else {
                             $(this).attr('src', './images/emptyStar.webp');
                         }
-                        addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')));
+                        let containerElement = $(this).parent().parent().parent();
+                        addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')), $(containerElement).attr('id'));
                     }
                 }).appendTo($(value).find($('.characterBtnWrapper')));
     
@@ -45,10 +47,12 @@ $(document).ready(() => {
                 }
     
                 let cleanVal = $(value).find($('.character')).attr('id');
-                if (characters !== undefined && characters.includes(Number(cleanVal))) {
+
+                if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
+                } else {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
                     $(starBtn).attr('src', './images/fullStar.webp');
-                } 
+                }
             });
         }, 2000);
 
@@ -213,7 +217,8 @@ const logIn = () => {
                         } else {
                             $(this).attr('src', './images/emptyStar.webp');
                         }
-                        addToFavorites(Number($(this).parent().parent().attr('id').replace('character', '')));
+                        let containerElement = $(this).parent().parent().parent();
+                        addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')), $(containerElement).attr('id'));
                     }
                 }).appendTo($(value).find($('.characterBtnWrapper')));
 
@@ -222,11 +227,14 @@ const logIn = () => {
                     $(value).find($('.addToFavoritesBtn')).addClass('addToFavoritesBtnLoggedIn');
                 }
 
+
                 let cleanVal = $(value).find($('.character')).attr('id');
-                if (characters.includes(Number(cleanVal))) {
+
+                if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
+                } else {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
                     $(starBtn).attr('src', './images/fullStar.webp');
-                } 
+                }
             });
 
             $('.menuOpenWrapper').show();
@@ -334,15 +342,25 @@ const resetPassword = () => {
     }
 }
 
-const addToFavorites = (character) => {
-    if (chosenCharacterArr.includes(character)) {
-        let index = chosenCharacterArr.indexOf(character);
-        chosenCharacterArr.splice(index, 1);
-        currentUser.set("characters", chosenCharacterArr).save();
-    } else {
-        chosenCharacterArr.push(character);
-        currentUser.set("characters", chosenCharacterArr).save();
+const addToFavorites = (character, containerElement) => {
+    let obj = {
+        id: character,
+        container: containerElement
     }
+
+
+    if (!characterObj.find(o => o.id === character && o.container === containerElement)) {
+        characterObj.push(obj)
+    } else {
+        for (let i = 0; i < characterObj.length; i++) {
+            if (characterObj[i].id === character && characterObj[i].container === containerElement) {
+                characterObj.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    currentUser.set("characterObj", characterObj).save();
 }
 
 const showFavorites = (type) => {
@@ -361,13 +379,16 @@ const showFavorites = (type) => {
             $('#time2').click();
             setTimeout(() => {
                 $.each($('.heroWrapper'), (key, value) => {
+
                     let cleanVal = $(value).find($('.character')).attr('id');
-                    if (characters.includes(Number(cleanVal))) {
+
+                    if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
+                        $(value).fadeOut('slow');
+                    } else {
+
                         $('#marvelContainer .infinityGauntlet').hide();
                         $('.addToFavoritesBtn').fadeOut();
                         $('.characterBtn').removeClass('characterBtnLoggedIn');
-                    } else {
-                        $(value).fadeOut('slow');
                     }
                 });
         
@@ -379,13 +400,17 @@ const showFavorites = (type) => {
         } else {
 
             $.each($('.heroWrapper'), (key, value) => {
+
+                
                 let cleanVal = $(value).find($('.character')).attr('id');
-                if (characters.includes(Number(cleanVal))) {
+
+                if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
+                    $(value).fadeOut('slow');
+                } else {
+
                     $('#marvelContainer .infinityGauntlet').hide();
                     $('.addToFavoritesBtn').fadeOut();
                     $('.characterBtn').removeClass('characterBtnLoggedIn');
-                } else {
-                    $(value).fadeOut('slow');
                 }
             });
     
