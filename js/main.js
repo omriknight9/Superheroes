@@ -634,6 +634,9 @@ const sortMovies = (container, elem1) => {
 }
 
 const characterClicked = (name, that, characterId, actorName) => {
+
+    $('body').css({'opacity': '.2', 'pointer-events': 'none'});
+
     $('.siteLink').remove();
     $('#tvShows').hide();
     $('#marvelContainer, #dcContainer, #nonMcuContainer').show();
@@ -722,11 +725,15 @@ const characterClicked = (name, that, characterId, actorName) => {
         if ($('#tvShows').is(':visible')) {
             $('#tvShows a').last().html($('#tvShows a').last().html().replace(',', ''));
         }
+
+        $('body').css({'opacity': '1', 'pointer-events': 'all'});
+        // $('html').css({'opacity': '1', 'pointerEvents': 'all'});
+
     }, 1000);
 
     $('.progress-container').hide();
     
-    $('body').css('pointer-events', 'none');
+    // $('body').css('pointer-events', 'none');
     $('#superheroContent').hide();
 
     that.fadeIn();
@@ -739,7 +746,7 @@ const characterClicked = (name, that, characterId, actorName) => {
         $('#marvelContainer .villainWrapper, #dcContainer .villainWrapper, #nonMcuContainer .villainWrapper').fadeIn();
     }
 
-    $('body').css('pointer-events', 'all');
+    // $('body').css('pointer-events', 'all');
     $('.progress-container').show();
     $('#moreMoviesContent, #actorImages').empty();
     hideMoreMovies();
