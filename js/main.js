@@ -556,7 +556,7 @@ const buildCredits = (credits) => {
                 class: 'extraMovieLink',
                 target: '_blank',
                 rel: 'noopener',
-                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + finalMovieTitle + '&value=' + moviesArr[i].id
+                href: 'https://omriknight9.github.io/omris-movies/movie/' + moviesArr[i].id
             }).appendTo(extraMovie);
 
             $('<img>', {
@@ -702,10 +702,10 @@ const characterClicked = (name, that, characterId, actorName) => {
         let link;
         let containerToAppend;
         if (movieList[i].movieValue) {
-            link = 'https://omriknight9.github.io/my-movie-list/?movie=' + movieList[i].name + '&value=' + movieList[i].movieValue;
+            link = 'https://omriknight9.github.io/omris-movies/movie/' + movieList[i].movieValue;
             containerToAppend = $('#movies');
         } else if (movieList[i].tvShowValue) {
-            link = 'https://omriknight9.github.io/my-movie-list/?tvShow=' + movieList[i].name + '&value=' + movieList[i].tvShowValue
+            link = 'https://omriknight9.github.io/omris-movies/tv/' + movieList[i].tvShowValue;
             containerToAppend = $('#tvShows');
         }
 
@@ -836,7 +836,7 @@ const buildTimeline = (wrapper, arr, type) => {
             let timelineMovieLink = $('<a>', {
                 class: 'timelineMovieLink',
                 rel: 'noopener',
-                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + movies[i].name.trim() + '&value=' + movies[i].value,
+                href: 'https://omriknight9.github.io/omris-movies/movie/' + movies[i].value,
                 target: '_blank'
             }).appendTo(timelineMovieWrapper);
     
