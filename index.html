@@ -6,7 +6,7 @@
     <title>Superheroes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1, user-scalable=yes">
     <meta name="description" content="Superheroes">
-    <link rel="shortcut icon" type="image/x-icon" href="images/captainAmericaShield.webp" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/captainAmericaShield.png" />
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/registration.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -47,10 +47,10 @@
     <main>
         <h2 id="userNameHeader"></h2>
         <div id="header">
-            <img src="./images/ironman.webp" alt="section" id="marvelHeaderImg" onclick="goToDiv('#lineMarvel')">
-            <img src="./images/wolverine.webp" alt="section" id="nonMcuHeaderImg" onclick="goToDiv('#nonMcuContainer')">
-            <img src="./images/superman.webp" alt="section" id="dcHeaderImg" onclick="goToDiv('#dcContainer')">
-            <img src="./images/user.webp" alt="user" onclick="goToSignUp()" id="signUpBtnHeader">
+            <img src="./images/ironman.png" alt="section" id="marvelHeaderImg" onclick="goToDiv('#lineMarvel')">
+            <img src="./images/wolverine.png" alt="section" id="nonMcuHeaderImg" onclick="goToDiv('#nonMcuContainer')">
+            <img src="./images/superman.png" alt="section" id="dcHeaderImg" onclick="goToDiv('#dcContainer')">
+            <img src="./images/user.png" alt="user" onclick="goToSignUp()" id="signUpBtnHeader">
         </div>
 
         <div class="menuOpenWrapper" onclick="toggleClass($('#toggle')[0], 'on')">
@@ -67,15 +67,15 @@
                     <li onclick="goToMyAccount()">My Account</li>
                     <li onclick="showFavorites(1)" id="favoritesBtn">Show Favorites</li>
                     <li onclick="logOut()">Logout</li>
-                    <li><img src="./images/ironman.webp" alt="section" id="marvelMenuImg" onclick="goToDiv('#lineMarvel')"></li>
-                    <li><img src="./images/wolverine.webp" alt="section" id="nonMcuMenuImg" onclick="goToDiv('#nonMcuContainer')"></li>
-                    <li><img src="./images/superman.webp" alt="section" id="dcMenuImg" onclick="goToDiv('#dcContainer')"></li>
+                    <li><img src="./images/ironman.png" alt="section" id="marvelMenuImg" onclick="goToDiv('#lineMarvel')"></li>
+                    <li><img src="./images/wolverine.png" alt="section" id="nonMcuMenuImg" onclick="goToDiv('#nonMcuContainer')"></li>
+                    <li><img src="./images/superman.png" alt="section" id="dcMenuImg" onclick="goToDiv('#dcContainer')"></li>
 
                 </ul>
             </div>
         </div>
 
-        <img src="./images/user.webp" alt="user" onclick="goToSignUp()" id="signUpBtn">
+        <img src="./images/user.png" alt="user" onclick="goToSignUp()" id="signUpBtn">
 
         <div id="signUpFormWrapper"></div>
 
@@ -151,13 +151,13 @@
                     <div id="actorWrapper">
                         <p id="actorName"></p>
                         <a href="" id="instagramLink" target="_blank" rel="noopener">
-                            <img src="./images/instagram.webp" alt="instagram" id="instagramImg">
+                            <img src="./images/instagram.png" alt="instagram" id="instagramImg">
                         </a>
                         <a href="" id="imdbLink" target="_blank" rel="noopener">
-                            <img src="./images/imdb.webp"  alt="imdb" id="imdbImg">
+                            <img src="./images/imdb.png"  alt="imdb" id="imdbImg">
                         </a>
                         <a href="" id="twitterLink" target="_blank" rel="noopener">
-                            <img src="./images/twitter.webp"  alt="twitter" id="twitterImg">
+                            <img src="./images/twitter.png"  alt="twitter" id="twitterImg">
                         </a>
                     </div>
                     <div id="actorImages"></div>
@@ -225,7 +225,7 @@
         <footer>
             <div id="tmdbFooter">
                 <a href="https://www.themoviedb.org/" rel="noopener" target="_blank" id="footerLink">
-                    <img src="./images/tmdb.webp" alt="tmdb" id="tmdbImg">
+                    <img src="./images/tmdb.png" alt="tmdb" id="tmdbImg">
                 </a>
                 <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
             </div>
@@ -233,8 +233,7 @@
     </div>
 
     <div id="upBtnWrapper">
-        <img src="images/upBtn.webp" alt="up arrow" id="goToTopBtn" onclick="goToTop()" />
-        <img src="images/upBtn2.png" alt="up arrow" id="goToTopBtn2" onclick="goToTop()" />
+        <img src="images/upBtn.png" alt="up arrow" id="goToTopBtn" onclick="goToTop()" />
     </div>
 </body>
 </html>
