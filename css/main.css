@@ -337,7 +337,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/snap.webp') 0px 0px;
+    url('../images/snap.png') 0px 0px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
@@ -350,7 +350,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/time.webp') 0px 0px;
+    url('../images/time.png') 0px 0px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 999;
 }
@@ -359,7 +359,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/snap.webp') 0px 0px;
+    url('../images/snap.png') 0px 0px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
@@ -369,7 +369,7 @@ button span:nth-child(4) {
     height: 80px;
     width: 80px;
     background: 
-    url('../images/time.webp') 0px 0px;
+    url('../images/time.png') 0px 0px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
@@ -687,7 +687,7 @@ main {
 }
 
 #lineMarvel span {
-    background: url(../images/ironman.webp) no-repeat 50% 50%;
+    background: url(../images/ironman.png) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -696,7 +696,7 @@ main {
 }
 
 #lineNonMcu span {
-    background: url(../images/wolverine.webp) no-repeat 50% 50%;
+    background: url(../images/wolverine.png) no-repeat 50% 50%;
     background-size: 70px 60px;
 }
 
@@ -705,7 +705,7 @@ main {
 }
 
 #lineDc span {
-    background: url(../images/superman.webp) no-repeat 50% 50%;
+    background: url(../images/superman.png) no-repeat 50% 50%;
     background-size: 60px 60px;
 }
 
@@ -713,7 +713,6 @@ main {
     position: relative;
     cursor: pointer;
     margin: 4rem 1rem;
-    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)) blur(0); */
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     transition: all 2s;
     -webkit-transition: all 2s;
@@ -846,7 +845,6 @@ main {
 .characterBtn {
     width: 35px;
     filter: drop-shadow(0 1px 1px rgba(200, 200, 200, 0.8));
-    /* filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8)); */
 }
 
 .characterBtnLoggedIn {
@@ -931,7 +929,6 @@ main {
     width: 4rem;
     border-radius: 5px;
     margin: .5rem;
-    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)); */
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
 }
 
@@ -956,7 +953,6 @@ main {
     right: 2rem;
     height: 9.4rem;
     border-radius: 5px;
-    /* filter: drop-shadow(0 1px 4px rgba(10, 10, 10, 0.5)); */
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
     overflow: hidden;
     transition: .2s;
@@ -1251,21 +1247,6 @@ main {
     filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
 }
 
-#goToTopBtn2 {
-    opacity: 0;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 9999;
-    border-radius: 100%;
-    filter: drop-shadow(0 1px 4px rgba(200, 200, 200, 0.8));
-    transform: translateX(20px);
-    animation: .3s upBtnChange forwards;
-}
-
 @keyframes upBtnChange {
     0% {
         transform: translateX(0);
@@ -1464,11 +1445,6 @@ footer p {
         color: #4caf50;
     }
 
-    #upBtnWrapper:hover > #goToTopBtn2 {
-        display: block;
-        animation: .3s upBtnChange2 forwards;
-    }
-
     @keyframes upBtnChange2 {
         0% {
             transform: translateX(15px);
@@ -1653,7 +1629,7 @@ footer p {
         height: 200px;
     }
 
-    #goToTopBtn, #goToTopBtn2 {
+    #goToTopBtn {
         width: 50px;
         height: 50px;
         right: 1rem;
