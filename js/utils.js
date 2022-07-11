@@ -173,28 +173,23 @@ const animateScript = (e, type) =>  {
     }, 2500);
 }
 
-const animateScript2 = (e, type) =>  {
-
+function animateScript2 (e, type)  {
     $('body').css('pointer-events', 'none');
     const audio = e.target.querySelector('audio');
-
     clearInterval(tID[e.target.id]);
     audio.currentTime = 0; 
-
     const startPosition = 0;
     let position = startPosition;
-
     const fullImgWidth = 3840;
     const diff = 80;
     const interval = 30;
-
     audio.play();
     tID[e.target.id] = setInterval ( () => {
     e.target.style.backgroundPosition = 
     `-${position}px 0px`; 
+
     if (position < fullImgWidth) { 
         position = position + diff;
-    
     } else { 
         position = startPosition;
         clearInterval(tID[e.target.id]);
