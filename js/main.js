@@ -1,31 +1,25 @@
 
 const tmdbKey = '0271448f9ff674b76c353775fa9e6a82';
 const movieActorsUrl = "https://api.themoviedb.org/3/person/";
-
 let mcuTimelineArr = [];
 let dcTimelineArr = [];
-
 let marvelMovieObj = {};
 let marvelMovieVillainsObj = {};
 let nonMcuMovieObj = {};
 let nonMcuMovieVillainsObj = {};
 let dcMovieObj = {};
 let dcMovieVillainsObj = {};
-
 let villainsShown = false;
 let mcuTimelineShown = false;
 let dcTimelineShown = false;
-
 let movieList;
 let searchVal;
 let heroes = 1;
 var time = 2;
-
 let monthName;
 let dayName;
 
 $(document).ready(() => {
-
     goToTop();
 
     window.onscroll = function () {
@@ -80,9 +74,7 @@ $(document).ready(() => {
         }
 
         $('#searchResults').empty();
-
         searchVal = $('#search').val().toLowerCase();
-
         let searchClass;
 
         if (heroes == 1) {
@@ -242,7 +234,6 @@ const goHome = (type) => {
 }
 
 const loadJson = () => {
-
     $.get('./lists/marvelMovieObj.txt', (data) => {
         marvelMovieObj = JSON.parse(data).movies;
     });
@@ -275,7 +266,6 @@ const loadJson = () => {
 }
 
 const buildCharacters = (type, wrapper, arr, num) => {
-
     let imgPath;
 
     switch (type) {
@@ -305,7 +295,6 @@ const buildCharacters = (type, wrapper, arr, num) => {
     }
 
     for (let i = 0; i < characters.length; i++) {
-
         let characterWrapper = $('<div>', {
             class: charactersClass,
             name: characters[i].name,
@@ -321,7 +310,7 @@ const buildCharacters = (type, wrapper, arr, num) => {
             $('<img>', {
                 class: 'characterBtn',
                 alt: 'actor',
-                src: './images/man.webp',
+                src: './images/man.png',
                 click: function() {
                     if ($(this).parent().parent().find($('.characterName')).is(':visible')) {
                         $(this).parent().parent().find($('.characterName')).hide();
@@ -371,7 +360,7 @@ const buildCharacters = (type, wrapper, arr, num) => {
         $('<img>', {
             class: 'dustImg',
             alt: 'dust',
-            src: './images/dust.webp'
+            src: './images/dust.png'
         }).appendTo(character);
 
         let characterOverlay = $('<div>', {
@@ -397,7 +386,6 @@ const buildCharacters = (type, wrapper, arr, num) => {
 const getActorDetails = (actorId) => {
     $.get(movieActorsUrl + actorId + "?api_key=" + tmdbKey + "&language=en-US&append_to_response=credits,external_ids,images", (data) => {
         var actorImgPath = 'https://image.tmdb.org/t/p/w500' + data.profile_path;
-
         $('#actorImg').attr('src', actorImgPath);
         $('#actorImg').attr('filePath', data.profile_path);
         $('#actorImg').show();
@@ -481,7 +469,6 @@ const buildCredits = (credits) => {
             }
 
             moviesArr[i].vote_average = JSON.stringify(moviesArr[i].vote_average);
-
             let finalVoteText;
 
             if ((moviesArr[i].vote_average.length == 1 && moviesArr[i].vote_average !== '0') || moviesArr[i].vote_average == '10') {
@@ -491,14 +478,11 @@ const buildCredits = (credits) => {
             }
 
             finalVoteText = finalVoteText.replace('.', '') + '%';
-
             let date = new Date(moviesArr[i].release_date);
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
-
             let finalDateText;
-
             let today = new Date();
 
             if (finalVoteText == '0%' && date > today) {
@@ -507,7 +491,6 @@ const buildCredits = (credits) => {
 
             changeMonthName(month - 1);
             changeDayName(day);
-
             finalDateText = monthName + ' ' + dayName + ' ' + year; 
 
             let extraMovieWrapper = $('<div>', {
@@ -527,7 +510,6 @@ const buildCredits = (credits) => {
             }).appendTo(extraMovieWrapper);
 
             if ($(window).width() < 765) {
-    
                 let extraMovieBtnWrapper = $('<div>', {
                     class: 'extraMovieBtnWrapper',
                 }).appendTo(extraMovieWrapper);
@@ -535,7 +517,7 @@ const buildCredits = (credits) => {
                 $('<img>', {
                     class: 'extraMovieBtn',
                     alt: 'actor',
-                    src: './images/man.webp',
+                    src: './images/man.png',
                     click: function() {
                         if ($(this).parent().parent().find($('.extraMovieName')).is(':visible')) {
                             $(this).parent().parent().find($('.extraMovieName')).hide();
@@ -556,7 +538,7 @@ const buildCredits = (credits) => {
                 class: 'extraMovieLink',
                 target: '_blank',
                 rel: 'noopener',
-                href: 'https://omriknight9.github.io/omris-movies/movie/' + moviesArr[i].id
+                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + finalMovieTitle + '&value=' + moviesArr[i].id
             }).appendTo(extraMovie);
 
             $('<img>', {
@@ -588,7 +570,6 @@ const buildCredits = (credits) => {
 
 const showMoreMovies = () => {
     sortMovies($('#moreMoviesContent'), 'releaseDate');
-    
     $('#moreMoviesContent').slideDown();
     $('#moreMoviesBtn').attr('onclick', 'hideMoreMovies()');
     $('#moreMoviesBtn').html('Hide' + '<span></span><span></span><span></span><span></span>');
@@ -606,11 +587,9 @@ const hideMoreMovies = () => {
 }
 
 const sortMovies = (container, elem1) => {
-
     let children;
     $.each($(container), function (key, value) {
         let ids = [], obj, i, len;
-
         children = $(this).find('.extraMovieWrapper');
 
         for (i = 0, len = children.length; i < len; i++) {
@@ -634,9 +613,7 @@ const sortMovies = (container, elem1) => {
 }
 
 const characterClicked = (name, that, characterId, actorName) => {
-
     $('body').css({'opacity': '.2', 'pointer-events': 'none'});
-
     $('.siteLink').remove();
     $('#tvShows').hide();
     $('#marvelContainer, #dcContainer, #nonMcuContainer').show();
@@ -702,10 +679,10 @@ const characterClicked = (name, that, characterId, actorName) => {
         let link;
         let containerToAppend;
         if (movieList[i].movieValue) {
-            link = 'https://omriknight9.github.io/omris-movies/movie/' + movieList[i].movieValue;
+            link = 'https://omriknight9.github.io/my-movie-list/?movie=' + movieList[i].name + '&value=' + movieList[i].movieValue;
             containerToAppend = $('#movies');
         } else if (movieList[i].tvShowValue) {
-            link = 'https://omriknight9.github.io/omris-movies/tv/' + movieList[i].tvShowValue;
+            link = 'https://omriknight9.github.io/my-movie-list/?tvShow=' + movieList[i].name + '&value=' + movieList[i].tvShowValue
             containerToAppend = $('#tvShows');
         }
 
@@ -727,13 +704,9 @@ const characterClicked = (name, that, characterId, actorName) => {
         }
 
         $('body').css({'opacity': '1', 'pointer-events': 'all'});
-        // $('html').css({'opacity': '1', 'pointerEvents': 'all'});
-
     }, 1000);
 
     $('.progress-container').hide();
-    
-    // $('body').css('pointer-events', 'none');
     $('#superheroContent').hide();
 
     that.fadeIn();
@@ -746,7 +719,6 @@ const characterClicked = (name, that, characterId, actorName) => {
         $('#marvelContainer .villainWrapper, #dcContainer .villainWrapper, #nonMcuContainer .villainWrapper').fadeIn();
     }
 
-    // $('body').css('pointer-events', 'all');
     $('.progress-container').show();
     $('#moreMoviesContent, #actorImages').empty();
     hideMoreMovies();
@@ -769,7 +741,6 @@ const goToTimeline = (type) => {
     $('.spinnerWrapper').show();
     $('body').css('pointer-events', 'none');
     goToTop();
-
     let arr;
 
     if (type == 1) {
@@ -808,15 +779,12 @@ const buildTimeline = (wrapper, arr, type) => {
 
     setTimeout(() => {
         for (let i = 0; i < movies.length; i++) {
-
             let date = new Date(movies[i].date);
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let yearToShow = date.getFullYear();
-
             changeMonthName(month - 1);
             changeDayName(day);
-    
             let dateForShow = monthName + ' ' + dayName + ' ' + yearToShow; 
     
             let timelineMovieWrapper = $('<div>', {
@@ -836,7 +804,7 @@ const buildTimeline = (wrapper, arr, type) => {
             let timelineMovieLink = $('<a>', {
                 class: 'timelineMovieLink',
                 rel: 'noopener',
-                href: 'https://omriknight9.github.io/omris-movies/movie/' + movies[i].value,
+                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + movies[i].name.trim() + '&value=' + movies[i].value,
                 target: '_blank'
             }).appendTo(timelineMovieWrapper);
     
@@ -865,7 +833,6 @@ const buildTimeline = (wrapper, arr, type) => {
         $('.spinnerWrapper').hide();
         $('body').css('pointer-events', 'all');
         $('#bottomSection').show();
-
     }, 1000);
 
     setTimeout(() => {
@@ -960,10 +927,8 @@ const villainsOrHeroes = (type) => {
             $('.heroWrapper .dustImg').css('left', '-10rem');
             $('.heroWrapper').css({'transform': 'translateX(60px)', 'opacity': 0});
 		}
-		
 	} else {
         heroes = 1;
-
         $('#mainContent').attr('class', 'mainHeroes');  
         $('.villainWrapper .dustImg').css('left', '-10rem');
         $('.villainWrapper').css({'transform': 'translateX(60px)', 'opacity': 0});
@@ -977,41 +942,43 @@ const villainsOrHeroes = (type) => {
     
     setTimeout(() => {
 		if(type == 1) {
+
             if (userLoggedIn) {
                 $('.characterBtn').removeClass('characterBtnLoggedIn');
             }
+
             $('.villainWrapper').show();
             $('.villainWrapper').css('opacity', 1);
             $('.heroWrapper').css({'transform': 'translateX(0)', 'opacity': 0}).hide();
-			$('#headerLogoMarvel').css({'background': 'url(./images/thanos.webp) no-repeat 50% 50%', 'background-size': '70px 60px'});
-			$('#headerLogoDc').css({'background': 'url(./images/joker.webp) no-repeat 50% 50%', 'background-size': '60px 60px'});
-			$('#headerLogoNonMcu').css({'background': 'url(./images/magneto.webp) no-repeat 50% 50%', 'background-size': '60px 60px'});
-			$('#marvelHeaderImg').attr('src', './images/thanos.webp');
-			$('#nonMcuHeaderImg').attr('src', './images/magneto.webp');
-			$('#dcHeaderImg').attr('src', './images/joker.webp');
+			$('#headerLogoMarvel').css({'background': 'url(./images/thanos.png) no-repeat 50% 50%', 'background-size': '70px 60px'});
+			$('#headerLogoDc').css({'background': 'url(./images/joker.png) no-repeat 50% 50%', 'background-size': '60px 60px'});
+			$('#headerLogoNonMcu').css({'background': 'url(./images/magneto.png) no-repeat 50% 50%', 'background-size': '60px 60px'});
+			$('#marvelHeaderImg').attr('src', './images/thanos.png');
+			$('#nonMcuHeaderImg').attr('src', './images/magneto.png');
+			$('#dcHeaderImg').attr('src', './images/joker.png');
 			$('html, body').css({'background': 'url(./images/background5.jpg) no-repeat center center fixed', 'background-size': 'cover'});
             $('#search').attr('placeholder', 'Search Villain');
             $('.heroWrapper .dustImg').css('left', '10rem');
- 
 		} else {
-
             if (userLoggedIn) {
                 $('.characterBtn').addClass('characterBtnLoggedIn');
                 $('.addToFavoritesBtnLoggedIn').show();
             }
+
             if (userLoggedIn) {
                 $('.menuOpenWrapper').show();
             }
+
             $('#snap2').show();
             $('.heroWrapper').show();
             $('.heroWrapper').css('opacity', 1);
             $('.villainWrapper').css({'transform': 'translateX(0)', 'opacity': 0}).hide();;
-			$('#headerLogoMarvel').css({'background': 'url(./images/ironman.webp) no-repeat 50% 50%', 'background-size': '70px 60px'});
-			$('#headerLogoDc').css({'background': 'url(./images/superman.webp) no-repeat 50% 50%', 'background-size': '60px 60px'});
-			$('#headerLogoNonMcu').css({'background': 'url(./images/wolverine.webp) no-repeat 50% 50%', 'background-size': '60px 60px'});
-			$('#marvelHeaderImg').attr('src', './images/ironman.webp');
-			$('#nonMcuHeaderImg').attr('src', './images/wolverine.webp');
-			$('#dcHeaderImg').attr('src', './images/superman.webp');
+			$('#headerLogoMarvel').css({'background': 'url(./images/ironman.png) no-repeat 50% 50%', 'background-size': '70px 60px'});
+			$('#headerLogoDc').css({'background': 'url(./images/superman.png) no-repeat 50% 50%', 'background-size': '60px 60px'});
+			$('#headerLogoNonMcu').css({'background': 'url(./images/wolverine.png) no-repeat 50% 50%', 'background-size': '60px 60px'});
+			$('#marvelHeaderImg').attr('src', './images/ironman.png');
+			$('#nonMcuHeaderImg').attr('src', './images/wolverine.png');
+			$('#dcHeaderImg').attr('src', './images/superman.png');
 			$('html, body').css({'background': 'url(./images/background11.jpg) no-repeat center center fixed', 'background-size': 'cover'});
             $('#search').attr('placeholder', 'Search Hero');
             $('.villainWrapper .dustImg').css('left', '10rem');
