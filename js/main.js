@@ -143,14 +143,14 @@ const lazyload = () => {
 }
 
 const dustHeroes = (type) => {
-    let dustedArr = ['character703', 'character489', 'character714', 'character251',
-    'character275', 'character697', 'character106', 'character620', 'character226',
-    'character579', 'character708', 'character234', 'character630', 'character303'];
+    let dustedArr = ['3', '5', '9', '10', '11',
+    '13', '21', '25', '24', '27',
+    '19', '23', '16', '12', '15'];
 
     if (type == 1) {
         setTimeout(() => {
             $.each($('.heroWrapper'), (key, value) => {
-                if (dustedArr.includes($(value).attr('id'))) {
+                if (dustedArr.includes($(value).attr('charachterId'))) {
                     $(value).find($('.dustImg')).css('left', '-10rem');
                     $(value).css({'transform': 'translateX(60px)', 'opacity': 0});
                     $(value).fadeOut(1500);
@@ -298,7 +298,7 @@ const buildCharacters = (type, wrapper, arr, num) => {
         let characterWrapper = $('<div>', {
             class: charactersClass,
             name: characters[i].name,
-            id: 'character' + characters[i].characterId,
+            charachterId: characters[i].id,
         }).appendTo(wrapper);
 
         let characterBtnWrapper = $('<div>', {
