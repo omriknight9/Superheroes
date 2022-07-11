@@ -1,0 +1,14 @@
+
+{
+    "characters" : [
+        { "id": 1, "name": "Magneto", "actor": "Ian McKellen", "actorId": 1327},
+        { "id": 2, "name": "Sabretooth", "actor": "Liev Schreiber", "actorId": 23626},
+        { "id": 3, "name": "Toad", "actor": "Ray Park", "actorId": 11007},
+        { "id": 4, "name": "Juggernaut", "actor": "Vinnie Jones", "actorId": 980},
+        { "id": 5, "name": "Sebastian Shaw", "actor": "Kevin Bacon", "actorId": 4724},
+        { "id": 6, "name": "Apocalypse", "actor": "Oscar Isaac", "actorId": 25072},
+        { "id": 7, "name": "Dr. Doom", "actor": "Julian McMahon", "actorId": 20402},
+        { "id": 8, "name": "Ajax", "actor": "Ed Skrein", "actorId": 1047649},
+        { "id": 9, "name": "Cable", "actor": "Josh Brolin", "actorId": 16851}
+    ]
+}
