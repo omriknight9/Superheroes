@@ -10,8 +10,6 @@ let nonMcuMovieVillainsObj = {};
 let dcMovieObj = {};
 let dcMovieVillainsObj = {};
 let villainsShown = false;
-let mcuTimelineShown = false;
-let dcTimelineShown = false;
 let movieList;
 let searchVal;
 let heroes = 1;
@@ -200,6 +198,7 @@ const goHome = (type) => {
     }
 
     $('#superheroContent, #signUpFormWrapper, #myAccountWrapper').hide();
+
     if ($('#mainContent').hasClass('mainHeroes')) {
         $('html, body').css({'background': 'url(./images/background11.jpg) no-repeat center center fixed', 'background-size': 'cover'});
     } else {
@@ -208,7 +207,7 @@ const goHome = (type) => {
 
     $('.infinityGauntlet, #marvelContainer, #dcContainer, #mainContent, .searchContainer').show();
     $('#lineMarvel, #lineDc').parent().show();
-    $('#mcuTimelineContent, #dcTimelineContent, #signUpFormWrapper, #myAccountWrapper').empty();
+    $('#signUpFormWrapper, #myAccountWrapper').empty();
     searchVal = '';
     $('#search').val('');
     $('#mcuTimeline, #dcTimeline').hide();
@@ -263,6 +262,12 @@ const loadJson = () => {
             buildCharacters(1, $('#nonMcuContainer'), JSON.parse(data), 1);
         }, 500);
     });
+
+    getTimeline(7099064, 1);
+    setTimeout(() => {
+        getTimeline(7099063, 2);
+    }, 1000);
+   
 }
 
 const buildCharacters = (type, wrapper, arr, num) => {
@@ -306,7 +311,6 @@ const buildCharacters = (type, wrapper, arr, num) => {
         }).appendTo(characterWrapper);
 
         if ($(window).width() < 765) {
-            
             $('<img>', {
                 class: 'characterBtn',
                 alt: 'actor',
@@ -422,7 +426,7 @@ const getActorDetails = (actorId) => {
 const buildImages = (images) => {
     let finalLength;
 
-    if(images.length > 7) {
+    if (images.length > 7) {
         finalLength = 7;
     } else {
         finalLength = images.length
@@ -538,7 +542,7 @@ const buildCredits = (credits) => {
                 class: 'extraMovieLink',
                 target: '_blank',
                 rel: 'noopener',
-                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + finalMovieTitle + '&value=' + moviesArr[i].id
+                href: 'https://omriknight9.github.io/omris-movies/movie/' + moviesArr[i].id
             }).appendTo(extraMovie);
 
             $('<img>', {
@@ -679,10 +683,10 @@ const characterClicked = (name, that, characterId, actorName) => {
         let link;
         let containerToAppend;
         if (movieList[i].movieValue) {
-            link = 'https://omriknight9.github.io/my-movie-list/?movie=' + movieList[i].name + '&value=' + movieList[i].movieValue;
+            link = 'https://omriknight9.github.io/omris-movies/movie/' + movieList[i].movieValue
             containerToAppend = $('#movies');
         } else if (movieList[i].tvShowValue) {
-            link = 'https://omriknight9.github.io/my-movie-list/?tvShow=' + movieList[i].name + '&value=' + movieList[i].tvShowValue
+            link = 'https://omriknight9.github.io/omris-movies/tv/' + movieList[i].tvShowValue
             containerToAppend = $('#tvShows');
         }
 
@@ -732,144 +736,108 @@ const getCharacterInfo = (name, actorName) => {
     document.querySelector('#superheroContent').scrollIntoView({ behavior: 'smooth' });
 }
 
+const getTimeline = (value, type) => {
+    $.get('https://api.themoviedb.org/4/list/' + value + '?api_key=' + tmdbKey, (data) => {
+        if (type == 1) {
+            mcuTimelineArr = data.results;
+        } else {
+            dcTimelineArr = data.results;
+        }
+
+        if (data.total_pages > 1) {
+            for (let i = 2; i < data.total_pages + 1; i++) {
+                $.get('https://api.themoviedb.org/4/list/' + value + '?api_key=' + tmdbKey + '&page=' + i, (data) => {
+                    if (type == 1) {
+                        mcuTimelineArr.push(...data.results);
+                        setTimeout(() => {
+                            buildTimeline($('#mcuTimelineContent'), mcuTimelineArr); 
+                        }, 1000);
+                    } else {
+                        dcTimelineArr.push(...data.results);
+                        setTimeout(() => {
+                            buildTimeline($('#dcTimelineContent'), dcTimelineArr); 
+                        }, 1000);
+                    }
+                }); 
+            }
+        } else {
+            if (type == 1) {
+                buildTimeline($('#mcuTimelineContent'), mcuTimelineArr); 
+            } else {
+                buildTimeline($('#dcTimelineContent'), dcTimelineArr);
+            }
+        }
+    });
+}
+
 const goToTimeline = (type) => {
     if ($(window).width() < 765) {
         $('#header').hide();
     }
 
     $('.infinityGauntlet, #signUpBtn, #userNameHeader, .menuOpenWrapper, #bottomSection, #dcTimeline, #mcuTimeline, .searchContainer, #mainContent').hide();
-    $('.spinnerWrapper').show();
-    $('body').css('pointer-events', 'none');
     goToTop();
-    let arr;
 
     if (type == 1) {
-        arr = mcuTimelineArr;
         $('#mcuTimeline').show();
-        if (!mcuTimelineShown) {
-            $.get('./lists/mcuTimeline.txt', (data) => {
-                arr.push(JSON.parse(data));
-                buildTimeline($('#mcuTimelineContent'), arr, type);
-            });
-            mcuTimelineShown = true;
-        } else {
-            buildTimeline($('#mcuTimelineContent'), arr, type);
-        }
-
     } else {
-        arr = dcTimelineArr;
         $('#dcTimeline').show();
-
-        if (!dcTimelineShown) {
-            $.get('./lists/dcTimeline.txt', (data) => {
-                arr.push(JSON.parse(data));
-                buildTimeline($('#dcTimelineContent'), arr, type);
-                dcTimelineShown = true;
-            });
-        } else {
-            buildTimeline($('#dcTimelineContent'), arr, type);
-        }
     }
 
     $('html, body').css({'background': 'url(./images/background9.jpg) no-repeat center center fixed', 'background-size': 'cover'});
 }
 
-const buildTimeline = (wrapper, arr, type) => {
-    let movies = arr[0].movies;
+const buildTimeline = (wrapper, arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        let dateForShow;
 
-    setTimeout(() => {
-        for (let i = 0; i < movies.length; i++) {
-            let date = new Date(movies[i].date);
+        if (arr[i].release_date == '' || arr[i].release_date == undefined || arr[i].release_date == null) {
+            dateForShow = 'TBA';
+        } else {
+            let date = new Date(arr[i].release_date);
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let yearToShow = date.getFullYear();
             changeMonthName(month - 1);
             changeDayName(day);
-            let dateForShow = monthName + ' ' + dayName + ' ' + yearToShow; 
-    
-            let timelineMovieWrapper = $('<div>', {
-                class: 'timelineMovieWrapper'
-            }).appendTo(wrapper);
-    
-            $('<p>', {
-                class: 'timelineMovieName',
-                text: movies[i].name
-            }).appendTo(timelineMovieWrapper);
-    
-            $('<p>', {
-                class: 'timelineMovieDate',
-                text: dateForShow
-            }).appendTo(timelineMovieWrapper);
-    
-            let timelineMovieLink = $('<a>', {
-                class: 'timelineMovieLink',
-                rel: 'noopener',
-                href: 'https://omriknight9.github.io/my-movie-list/?movie=' + movies[i].name.trim() + '&value=' + movies[i].value,
-                target: '_blank'
-            }).appendTo(timelineMovieWrapper);
-    
-            $('<img>', {
-                class: 'timelineMovieImg',
-                src: './images/' + movies[i].image,
-                alt: 'movie img'
-            }).appendTo(timelineMovieLink);
+            dateForShow = monthName + ' ' + dayName + ' ' + yearToShow; 
         }
+  
+        let timelineMovieWrapper = $('<div>', {
+            class: 'timelineMovieWrapper'
+        }).appendTo(wrapper);
 
-        if ($('.timelineMovieWrapper').length % 2 == 0) {
-            if (type == 1) {
-                $('.timelineMovieWrapper').parent().addClass('marvelEvenMovieWrapper');
-            } else {
-                $('.timelineMovieWrapper').parent().addClass('dcEvenMovieWrapper');
-            }
-    
+        $('<p>', {
+            class: 'timelineMovieName',
+            text: arr[i].title
+        }).appendTo(timelineMovieWrapper);
+
+        $('<p>', {
+            class: 'timelineMovieDate',
+            text: dateForShow
+        }).appendTo(timelineMovieWrapper);
+
+        let timelineMovieLink = $('<a>', {
+            class: 'timelineMovieLink',
+            rel: 'noopener',
+            href: 'https://omriknight9.github.io/omris-movies/movie/' + arr[i].id,
+            target: '_blank'
+        }).appendTo(timelineMovieWrapper);
+
+        let finalImg;
+
+        if (arr[i].backdrop_path == null || arr[i].backdrop_path == undefined || arr[i].backdrop_path == '') { 
+            finalImg = './images/stockMovie.jpg';
         } else {
-            if (type == 1) {
-                $('.timelineMovieWrapper').parent().addClass('marvelOddMovieWrapper');
-            } else {
-                $('.timelineMovieWrapper').parent().addClass('dcOddMovieWrapper');
-            }
+            finalImg = 'https://image.tmdb.org/t/p/w1280' + arr[i].backdrop_path;
         }
 
-        $('.spinnerWrapper').hide();
-        $('body').css('pointer-events', 'all');
-        $('#bottomSection').show();
-    }, 1000);
-
-    setTimeout(() => {
-        window.onscroll = function () {
-            barScroll();
-            scrollBtn();
-            lazyload();
-            this.oldScroll = this.scrollY;
-
-            if ($(window).width() > 765) {
-                $('.moveLine').each(function(i) {
-                    if ($(this).is(':visible')) {
-                        var bottom_of_object = $(this).offset().top + $(this).outerHeight() + 100;
-                        var bottom_of_window = $(window).scrollTop() + $(window).height();
-                        if (bottom_of_window > bottom_of_object && !$(this).hasClass('moveUp')) {
-                            $(this).addClass('moveUp');
-                            if ($(this).attr('name') == 'nonMcuLineWrapper') {
-                                $('#nonMcuContainer').addClass('fullOpacity');
-                            } else if ($(this).attr('name') == 'dcLineWrapper') {
-                                $('#dcContainer').addClass('fullOpacity');
-                            }
-                        }
-                    }
-                });
-            }
-            
-            $('.timelineMovieWrapper').each( function(i) {
-                var bottom_of_object = $(this).offset().top + $(this).outerHeight() - 400;
-                var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                if( bottom_of_window > bottom_of_object ){
-                    $(this).animate({'opacity':'1'});
-                    $(this).css({'transform': 'scale(1)'}, 5400);   
-                }
-            }); 
-        };
-    }, 1500);
+        $('<img>', {
+            class: 'timelineMovieImg',
+            src: finalImg,
+            alt: 'movie img'
+        }).appendTo(timelineMovieLink);
+    }
 }
 
 const villainsOrHeroes = (type) => {
@@ -942,7 +910,6 @@ const villainsOrHeroes = (type) => {
     
     setTimeout(() => {
 		if(type == 1) {
-
             if (userLoggedIn) {
                 $('.characterBtn').removeClass('characterBtnLoggedIn');
             }
