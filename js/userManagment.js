@@ -3,7 +3,6 @@ const back4appAppId = 'gtdHhx99C3WkxE5EWFi8NN3M8u3MBVXc0sQk5y7C';
 const back4appJsKey = 'EQrq2RH5VZ8FBRuq2t21OSkuSYiTXTXWVpuYyZot';
 let characterObj = [];
 let currentUser;
-
 let userLoggedIn = false;
 let favorites = false;
 
@@ -26,13 +25,13 @@ $(document).ready(() => {
             $.each($('.heroWrapper'), function (key, value) {
                 $('<img>', {
                     class: 'addToFavoritesBtn',
-                    src: './images/emptyStar.webp',
+                    src: './images/emptyStar.png',
                     alt: 'star',
                     click: function() {
-                        if ($(this).attr('src') == './images/emptyStar.webp') {
-                            $(this).attr('src', './images/fullStar.webp');
+                        if ($(this).attr('src') == './images/emptyStar.png') {
+                            $(this).attr('src', './images/fullStar.png');
                         } else {
-                            $(this).attr('src', './images/emptyStar.webp');
+                            $(this).attr('src', './images/emptyStar.png');
                         }
                         let containerElement = $(this).parent().parent().parent();
                         addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')), $(containerElement).attr('id'));
@@ -49,23 +48,21 @@ $(document).ready(() => {
                 if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
                 } else {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
-                    $(starBtn).attr('src', './images/fullStar.webp');
+                    $(starBtn).attr('src', './images/fullStar.png');
                 }
             });
         }, 2000);
 
         $('.menuOpenWrapper').show();
-        
         $('#userNameHeader').html('Hello, ' + capitalize(currentUser.get("username"))).show();
         $('#signUpBtn').hide();
     }
 });
 
 const goToSignUp = () => {
-
     $('body').css('pointer-events', 'none');
-
     $('.infinityGauntlet, #signUpBtn').hide();
+
     if ($(window).width() < 765) {
         $('#header').hide();
     }
@@ -98,16 +95,12 @@ const showResetPassForm = () => {
 }
 
 const signUp = () => {
-
     valid = true;
-
     let nameVal = $('#usernameSignUp').val();
     let emailVal = $('#emailSignUp').val();
     let passwordVal = $('#passwordSignUp').val();
-
     let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-    
     if (nameVal == '' || nameVal.length < 2) {
         $('#usernameSignUp').css({
             'border': '1px solid #FF4545'
@@ -139,20 +132,18 @@ const signUp = () => {
     }
 
     if (valid) {
-
         if (Parse.User.current() !== null) {
             Parse.User.logOut();
         }
 
         localStorage.clear();
         let user = new Parse.User();
-
         currentUser = user;
-
         user.set("username", nameVal);
         user.set("password", passwordVal);
         user.set("email", emailVal);
         user.set("characters", chosenCharacterArr);
+
         user.signUp().then(() => {
             showSignInForm();
 
@@ -163,9 +154,7 @@ const signUp = () => {
 }
 
 const logIn = () => {
-
     valid = true;
-
     let nameVal = $('#usernameSignIn').val();
     let passwordVal = $('#passwordSignIn').val();
 
@@ -193,27 +182,24 @@ const logIn = () => {
     }
 
     if (valid) {
-
         localStorage.clear();
 
         let user = Parse.User.logIn(nameVal, passwordVal).then((user) => {
             currentUser = user;
-
             let characters = user.get("characters");
-
             chosenCharacterArr = characters;
 
             $.each($('.heroWrapper'), (key, value) => {
             
                 let addToFavoritesBtn = $('<img>', {
                     class: 'addToFavoritesBtn',
-                    src: './images/emptyStar.webp',
+                    src: './images/emptyStar.png',
                     alt: 'star',
                     click: function() {
-                        if ($(this).attr('src') == './images/emptyStar.webp') {
-                            $(this).attr('src', './images/fullStar.webp');
+                        if ($(this).attr('src') == './images/emptyStar.png') {
+                            $(this).attr('src', './images/fullStar.png');
                         } else {
-                            $(this).attr('src', './images/emptyStar.webp');
+                            $(this).attr('src', './images/emptyStar.png');
                         }
                         let containerElement = $(this).parent().parent().parent();
                         addToFavorites(Number($(this).parent().parent().find($('.character')).attr('id')), $(containerElement).attr('id'));
@@ -225,20 +211,17 @@ const logIn = () => {
                     $(value).find($('.addToFavoritesBtn')).addClass('addToFavoritesBtnLoggedIn');
                 }
 
-
                 let cleanVal = $(value).find($('.character')).attr('id');
 
                 if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
                 } else {
                     let starBtn = $(value).find($('.addToFavoritesBtn'));
-                    $(starBtn).attr('src', './images/fullStar.webp');
+                    $(starBtn).attr('src', './images/fullStar.png');
                 }
             });
 
             $('.menuOpenWrapper').show();
-
             $('#header').hide();
-            
             $('body').css('pointer-events', 'none');
             
             setTimeout(() => {
@@ -246,13 +229,9 @@ const logIn = () => {
             }, 2000);
 
             $('#signUpBtn').hide();
-
             userLoggedIn = true;
-
             $('#userNameHeader').html('Hello, ' + capitalize(user.get("username"))).show();
-
             goHome(2);
-
         }).catch((error) => {
             if (error.code == 205) {
                 $('body').css('pointer-events', 'none');
@@ -283,7 +262,6 @@ const logIn = () => {
 
 const logOut = () => {
     localStorage.clear();
-
     chosenCharacterArr = [];
 
     let user = Parse.User.logOut().then((user) => {
@@ -300,22 +278,16 @@ const logOut = () => {
         }
 
         $('.addToFavoritesBtn').remove();
-
         $('.menuOpenWrapper, #userNameHeader').hide();
-
         $('.characterBtn').removeClass('characterBtnLoggedIn');
         $('#userNameHeader').html('');
-
         userLoggedIn = false;
     });
 }
 
 const resetPassword = () => {
-
     valid = true;
-
     let emailVal = $('#emailForgotPass').val();
-
     let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
     if (emailVal == '' || emailVal == undefined || emailVal == 0 || !filter.test(emailVal)) {
@@ -326,7 +298,6 @@ const resetPassword = () => {
     }
 
     if (valid) {
-
         Parse.User.requestPasswordReset(emailVal).then(() => {
             $('#emailWasSent').fadeIn();
 
@@ -346,7 +317,6 @@ const addToFavorites = (character, containerElement) => {
         container: containerElement
     }
 
-
     if (!characterObj.find(o => o.id === character && o.container === containerElement)) {
         characterObj.push(obj)
     } else {
@@ -362,9 +332,7 @@ const addToFavorites = (character, containerElement) => {
 }
 
 const showFavorites = (type) => {
-
     $('body').css('pointer-events', 'none');
-
     let characters = currentUser.get("characters");
 
     if (characters == undefined) {
@@ -372,18 +340,15 @@ const showFavorites = (type) => {
     }
 
     if (type == 1) {
-
         if ($('#time2').is(':visible')) {
             $('#time2').click();
             setTimeout(() => {
                 $.each($('.heroWrapper'), (key, value) => {
-
                     let cleanVal = $(value).find($('.character')).attr('id');
 
                     if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
                         $(value).fadeOut('slow');
                     } else {
-
                         $('#marvelContainer .infinityGauntlet').hide();
                         $('.addToFavoritesBtn').fadeOut();
                         $('.characterBtn').removeClass('characterBtnLoggedIn');
@@ -396,16 +361,12 @@ const showFavorites = (type) => {
                 $('body').css('pointer-events', 'all');
             }, 3000)
         } else {
-
             $.each($('.heroWrapper'), (key, value) => {
-
-                
                 let cleanVal = $(value).find($('.character')).attr('id');
 
                 if (!characterObj.find(o => o.id === Number(cleanVal) && o.container === $(value).parent().attr('id'))) { 
                     $(value).fadeOut('slow');
                 } else {
-
                     $('#marvelContainer .infinityGauntlet').hide();
                     $('.addToFavoritesBtn').fadeOut();
                     $('.characterBtn').removeClass('characterBtnLoggedIn');
@@ -419,7 +380,6 @@ const showFavorites = (type) => {
         }
         
         favorites = true;
-
     } else {
         $('#marvelContainer .infinityGauntlet').show();
         $('.heroWrapper').fadeIn();
@@ -437,11 +397,8 @@ const showFavorites = (type) => {
 }
 
 const goToMyAccount = () => {
-
     $('body').css('pointer-events', 'none');
-
     $('.infinityGauntlet, #signUpBtn, #userNameHeader, .menuOpenWrapper').hide();
-
     $('html, body').css({'background': 'url(./images/background9.jpg) no-repeat center center fixed', 'background-size': 'cover'});
     $('#mainContent, .searchContainer').hide();
 
@@ -455,9 +412,7 @@ const goToMyAccount = () => {
 }
 
 const changeUsername = () => {
-
     valid = true;
-
     let usernameAccountVal = $('#usernameAccount').val();
 
     if (usernameAccountVal == '' || usernameAccountVal.length < 2) {
